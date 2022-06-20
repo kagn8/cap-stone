@@ -1,0 +1,130 @@
+.flex-cop{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+.copertina{
+    height: 100px;
+    width: 50vw;
+    // position: fixed;
+    background: rgb(164,170,193);
+    background: -moz-radial-gradient(circle, rgba(164,170,193,1) 0%, rgba(230,223,223,1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(164,170,193,1) 0%, rgba(230,223,223,1) 100%);
+    background: radial-gradient(circle, rgba(164,170,193,1) 0%, rgba(230,223,223,1) 100%);
+    position: relative;
+    border-radius: 5px;
+    margin-bottom: 70px;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000a1, 5px 5px 15px 5px rgba(0,0,0,0); 
+    box-shadow: 0px 10px 13px -7px #000000a1, 5px 5px 15px 5px rgba(0,0,0,0);
+    
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+
+&:hover {
+    
+   
+    
+    
+   
+    animation: colorRotate 0.5s linear 0s 1;
+  }
+}  
+  @keyframes colorRotate {
+    from {
+      color: #6666ff;
+    }
+    10% {
+      color: #0099ff;
+    }
+    50% {
+      color: #00ff00;
+    }
+    75% {
+      color: #ff3399;
+    }
+    100% {
+      color: #6666ff;
+    }
+  }
+
+}
+.nuovo{
+    position: absolute;
+    left: 250px;
+    top: 100px;
+    display: flex;
+    width: 20vw;
+    justify-content: space-between;
+   
+
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+
+
+.card-p{
+    height: auto;
+    width: 25vw;
+    background: rgb(179,178,178);
+    background: -moz-linear-gradient(0deg, rgba(179,178,178,1) 0%, rgba(255,248,248,1) 100%);
+    background: -webkit-linear-gradient(0deg, rgba(179,178,178,1) 0%, rgba(255,248,248,1) 100%);
+    background: linear-gradient(0deg, rgba(179,178,178,1) 0%, rgba(255,248,248,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b3b2b2",endColorstr="#fff8f8",GradientType=1);
+    border-radius: 5px;
+    margin: 5px;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000a1, 5px 5px 15px 5px rgba(0,0,0,0); 
+    box-shadow: 0px 10px 13px -7px #000000a1, 5px 5px 15px 5px rgba(0,0,0,0);
+}
+}
+.header-card{
+    display: flex;
+    justify-content: space-between;
+}
+.img-profilo{
+    height: 30px;
+    width: 20px;
+}
+.spaziale{
+    border-bottom: 1px solid rgba(0,0,0,0.44);
+    border-radius: 7px;
+    margin: 5px;
+}
+.img-card{
+    height: 150px;
+    width: 100px;
+}
+.footer-card{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+#aside{
+  position: fixed;
+  background: rgb(164,170,193);
+  background: -moz-radial-gradient(circle, rgba(164,170,193,1) 0%, rgba(230,223,223,1) 100%);
+  background: -webkit-radial-gradient(circle, rgba(164,170,193,1) 0%, rgba(230,223,223,1) 100%);
+  background: radial-gradient(circle, rgba(164,170,193,1) 0%, rgba(230,223,223,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a4aac1",endColorstr="#e6dfdf",GradientType=1);
+  height: 190px;
+  width: 20vw;
+  top: 300px;
+  left: 15px;
+  border-radius: 5px;
+  padding: 1%;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000a1, 5px 5px 15px 5px rgba(0,0,0,0); 
+  box-shadow: 0px 10px 13px -7px #000000a1, 5px 5px 15px 5px rgba(0,0,0,0);
+  
+}
+
+.flex1{
+  display: flex;
+  justify-content: space-between;
+}
