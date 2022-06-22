@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IPosts } from '../posts';
+import { ServiceMainService } from '../service-main.service';
 
 @Component({
   selector: 'app-home-page',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private post:ServiceMainService ) { }
 
+  home:IPosts[]=[]
+  visualizzaPosts(){
+    this.post.getPosts().subscribe(res=>{this.home=res.reverse()})
+  }
   ngOnInit(): void {
+    this.visualizzaPosts()
   }
 
 }

@@ -26,3 +26,45 @@
         justify-content: space-between;
     }
 }
+#asideNew{
+    
+    top: 300px;
+    height: auto;
+}
+.grande{
+  height: 10rem;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+
+&:hover {
+    
+   
+    
+    
+   
+    animation: colorRotate 0.5s linear 0s 1;
+  }
+  
+  @keyframes colorRotate {
+    from {
+      color: #6666ff;
+    }
+    10% {
+      color: #0099ff;
+    }
+    50% {
+      color: #00ff00;
+    }
+    75% {
+      color: #ff3399;
+    }
+    100% {
+      color: #6666ff;
+    }
+  }
+}

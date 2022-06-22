@@ -1,14 +1,19 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Urbanist&display=swap');
 
 $base-sfondo1: rgb(15, 89, 180);
 $base-sfondo2: rgb(53, 119, 189);
-
+*{
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 500;
+}
+// TODO
 body{
     
     background: linear-gradient(-45deg,  #23a6d5,$base-sfondo2, #13866b,  $base-sfondo1);
     background-size: 400% 400%;
     animation: gradient 25s ease infinite;
-
+    // font-family: 'Josefin Sans', sans-serif;
     height: 100vh;
     width: 100%;
 }
@@ -74,4 +79,38 @@ body{
     &:hover{
         filter: brightness(70%);
     }
+}
+
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    font-weight: bold;
+
+&:hover {
+    
+   
+    
+    
+   
+    animation: colorRotate 0.5s linear 0s 1;
+  }
+  
+  @keyframes colorRotate {
+    from {
+      color: #6666ff;
+    }
+    10% {
+      color: #0099ff;
+    }
+    50% {
+      color: #00ff00;
+    }
+    75% {
+      color: #ff3399;
+    }
+    100% {
+      color: #6666ff;
+    }
+  }
 }

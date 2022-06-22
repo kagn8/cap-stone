@@ -1,6 +1,34 @@
 {
-    "posts": [
-    ],
-    "users": [
-    ]
-  }
+  "users": [
+    {
+      "email": "cagnotto.f@gmail.com",
+      "password": "$2a$10$P/pQKWYmuGF9iupvLNO3sOza0eY3bckbwC6434DINkTL5ISd1pimO",
+      "name": "Francesco",
+      "surname": "Cagnotto",
+      "username": "kagn8",
+      "vipmember": true,
+      "creationdate": "2/5/2022 12:26",
+      "id": 1
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "ciao",
+      "body": "ciao",
+      "date": "2/5/2022 18:26",
+      "fotografia": "",
+      "linko": "",
+      "author": "Francesco Cagnotto"
+    },
+    {
+      "id": 2,
+      "title": "hey",
+      "body": "hey",
+      "date": "2/5/2022 18:28",
+      "fotografia": "",
+      "linko": "",
+      "author": "Francesco Cagnotto"
+    }
+  ]
+}

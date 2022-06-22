@@ -13,8 +13,12 @@
       <div class="nav-link col-4 text-end">
         <div id="box" class="gradient-border"><a [routerLink]="['/profilo-utente']"><img class=" img-raimbow" src="../../../assets/img/foto-prof.jpg" alt="Foto-profilo"srcset=""/></a></div>
         
-        <a href="" class="text-end  ms-5"><i class="bi bi-three-dots-vertical"></i></a>
+        <a  class="text-end  ms-5 pointer" (click)="mostraOpzioni()"><i class="bi bi-three-dots-vertical"></i></a>
       </div>
    
- 
-</div>
+    </div>
+    
+    <div *ngIf="opzioni" class="opzioni text-end">
+      
+      <button class="btn btn-light" (click)="esci()">Logout</button>
+    </div>

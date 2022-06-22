@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { NavComponent } from './comp/nav/nav.component';
 import { AsideComponent } from './comp/aside/aside.component';
 import { AsideSponsorComponent } from './comp/aside-sponsor/aside-sponsor.component';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorInterceptor } from './auth-interceptor.interceptor';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,9 +19,16 @@ import { AsideSponsorComponent } from './comp/aside-sponsor/aside-sponsor.compon
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [{
+    provide:HTTP_INTERCEPTORS,
+    useClass:AuthInterceptorInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
