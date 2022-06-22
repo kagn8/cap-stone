@@ -6,4 +6,5 @@ export interface IPosts {
     fotografia:string;
     linko:any;
     author:string;
+    authorNumero:any
 }

@@ -52,7 +52,7 @@ export class AsideComponent implements OnInit {
   creaNuovo(){
     console.log(this.form);
 
-    let nuovo = new ClassPosts(0, this.form.value.title, this.form.value.body, "", "", `${this.user?.user.name} ${this.user?.user.surname}`)
+    let nuovo = new ClassPosts(0, this.form.value.title, this.form.value.body, "", "", `${this.user?.user.name} ${this.user?.user.surname}`, this.user?.user.id)
 
     this.caricamento=true
     this.newPost.createNewPost(nuovo).subscribe((res: any)=>{console.log(res); this.caricamento=false;})
@@ -71,7 +71,7 @@ export class AsideComponent implements OnInit {
     console.log(this.form);
     this.foto=this.form.value.fotografia
 
-    let nuovo = new ClassPosts(0, this.form.value.title, this.form.value.body, this.foto, "", `${this.user?.user.name} ${this.user?.user.surname}`)
+    let nuovo = new ClassPosts(0, this.form.value.title, this.form.value.body, this.foto, "", `${this.user?.user.name} ${this.user?.user.surname}`, this.user?.user.id)
 
     this.caricamento=true
     this.newPost.createNewPost(nuovo).subscribe((res: any)=>{console.log(res); this.caricamento=false;})
@@ -89,7 +89,7 @@ export class AsideComponent implements OnInit {
     
      let giorgio = this.form.value.title;
      console.log(giorgio);
-    let nuovo = new ClassPosts(0, this.form.value.title, this.form.value.body, "ciao", `${this.form.value.linko}`, `${this.user?.user.name} ${this.user?.user.surname}`)
+    let nuovo = new ClassPosts(0, this.form.value.title, this.form.value.body, "ciao", `${this.form.value.linko}`, `${this.user?.user.name} ${this.user?.user.surname}`, this.user?.user.id)
     this.caricamento=true
     this.newPost.createNewPost(nuovo).subscribe((res: any)=>{console.log(res); this.caricamento=false;})
     // this.form = this.forms.group({

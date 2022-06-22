@@ -27,7 +27,7 @@
 </div>
 
 <div class="aside" id="asideNew" *ngIf="modalNuovoPh" >
-<form action="" [formGroup]="form" (ngSubmit)="creaNuovo()">
+<form action="" [formGroup]="form" (ngSubmit)="creaNuovoPh()">
     <label for="">Titolo:</label>    
     <input type="text" class="form-control"  formControlName="title">
     <label for="">link Foto:</label>
@@ -40,7 +40,7 @@
 </div>
 
 <div class="aside" id="asideNew" *ngIf="modalNuovoLink" >
-<form action="" [formGroup]="form" (ngSubmit)="creaNuovo()">
+<form action="" [formGroup]="form" (ngSubmit)="creaNuovoLink()">
     <label for="">Titolo:</label>    
     <input type="text" class="form-control"  formControlName="title">
     <label for="">link Youtube:</label>

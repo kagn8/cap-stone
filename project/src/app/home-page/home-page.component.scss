@@ -7,6 +7,7 @@
 
 
 .card-p{
+    
     height: auto;
     width: 25vw;
     background: rgb(179,178,178);
@@ -23,6 +24,10 @@
 .header-card{
     display: flex;
     justify-content: space-between;
+}
+.main-card{
+    display: flex;
+    flex-direction: column;
 }
 .img-profilo{
     height: 30px;

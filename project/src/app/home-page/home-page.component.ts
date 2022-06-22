@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+
+import { AuthData, AuthService } from '../auth-service.service';
 import { IPosts } from '../posts';
 import { ServiceMainService } from '../service-main.service';
 
@@ -8,8 +10,9 @@ import { ServiceMainService } from '../service-main.service';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
+  user!:AuthData|null 
 
-  constructor(private post:ServiceMainService ) { }
+  constructor(private post:ServiceMainService, private homeAuth:AuthService, ) { }
 
   home:IPosts[]=[]
   visualizzaPosts(){
@@ -17,6 +20,8 @@ export class HomePageComponent implements OnInit {
   }
   ngOnInit(): void {
     this.visualizzaPosts()
-  }
 
+    this.homeAuth.loginObs.subscribe((res)=>{
+      this.user = res;})
+  }
 }

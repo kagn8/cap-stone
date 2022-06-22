@@ -1,5 +1,5 @@
 <div class="flex">
-    <!-- <div class="card-p p-1">
+  <!-- <div class="card-p p-1">
         <div class="header-card ">
             <img  class="img-profilo" src="../assets/img/logo.png" alt="" srcset="">
             <h5>Nome-Utente</h5>
@@ -36,26 +36,34 @@
             <a href=""> Commenta</a>
         </div> -->
 
-    <!-- </div> -->
-    <div class="card-p p-1" *ngFor="let post of home">
-        <div class="header-card ">
-            <img  class="img-profilo" src="../assets/img/logo.png" alt="" srcset="">
-            <h5>{{post.author}}</h5>
-            <a href=""><i class="bi bi-three-dots-vertical"></i></a>
-        </div>
-        <div class="spaziale"></div>
-        <div class="main-card">
-            <h6>{{post.title}}</h6>
-            <p>{{post.body}}</p>
-            <img *ngIf="post.fotografia" src=" {{post.fotografia}} " alt="">
-            <!-- <iframe *ngIf="post.link" width="450" height="315" src="{{post.link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br> -->
-            <i > {{post.date}}</i>
-        </div>
-        <div class="spaziale"></div>
-        <div class="footer-card">
-            <a href=""> Like <i class="bi bi-hand-thumbs-up"></i></a>
-            <a href=""> Commenta</a>
-        </div>
-        
-
+  <!-- </div> -->
+  <!-- -->
+  <div class="card-p p-1" *ngFor="let post of home">
+    <div class="header-card">
+      <img class="img-profilo" src="../assets/img/logo.png" alt="" srcset="" />
+      <h4>{{ post.author }}</h4>
+      <div *ngIf="user?.user?.id == post.authorNumero">
+        <a><i class="bi bi-three-dots-vertical"></i></a>
+      </div>
+    </div>
+    <div class="spaziale"></div>
+    <div class="main-card">
+      <h5>{{ post.title }}</h5>
+      <img
+        *ngIf="post.fotografia"
+        class="m-auto"
+        src="http://{{post.fotografia}}"
+        alt=""
+      />
+      <div *ngIf="post.linko" >  {{post.linko}} </div>
+      <p>{{ post.body }}</p>
+      <!-- <iframe *ngIf="post.link" width="450" height="315" src="{{post.link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br> -->
+      <i> {{ post.date }}</i>
+    </div>
+    <div class="spaziale"></div>
+    <div class="footer-card">
+      <a href=""> Like <i class="bi bi-hand-thumbs-up"></i></a>
+      <a href=""> Commenta</a>
+    </div>
+  </div>
 </div>

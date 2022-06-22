@@ -1,4 +1,6 @@
-export class ClassPosts {
+import { IPosts } from "./posts";
+
+export class ClassPosts implements IPosts {
     id:number;
     title:string;
     body:string;
@@ -6,8 +8,10 @@ export class ClassPosts {
     fotografia:string;
     linko:any;
     author:string;
+    authorNumero:any
+    
 
-    constructor(id:number, title:string,body:string,photo:string,link:any, author:string){
+    constructor(id:number, title:string,body:string,photo:string,link:any, author:string, idUser:any){
         this.id=id
         this.title=title
         this.body=body
@@ -15,5 +19,6 @@ export class ClassPosts {
         this.fotografia=photo
         this.linko=link
         this.author=author
+        this.authorNumero=idUser
     }
 }
