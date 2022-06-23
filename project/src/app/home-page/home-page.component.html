@@ -43,8 +43,12 @@
       <img class="img-profilo" src="../assets/img/logo.png" alt="" srcset="" />
       <h4>{{ post.author }}</h4>
       <div *ngIf="user?.user?.id == post.authorNumero">
-        <a><i class="bi bi-three-dots-vertical"></i></a>
+        <a (click)="opzioniPost(post)"><i class="bi bi-three-dots-vertical"></i></a>
       </div>
+      <div *ngIf="user?.user?.id != post.authorNumero">
+        <a (click)="opzioniPost(post)"><i class="bi bi-eyeglasses"></i></a>
+      </div>
+
     </div>
     <div class="spaziale"></div>
     <div class="main-card">
@@ -66,4 +70,36 @@
       <a href=""> Commenta</a>
     </div>
   </div>
+  <div *ngIf="opzPost" class="card-p position p-1"> <div class="header-card">
+      <img class="img-profilo" src="../assets/img/logo.png" alt="" srcset="" />
+      <h4>{{ postMod.author }}</h4>
+      <div *ngIf="user?.user?.id == postMod.authorNumero">
+        <a (click)="opzioniPost(postMod)"><i class="bi bi-three-dots-vertical"></i></a>
+      </div>
+      <div *ngIf="user?.user?.id != postMod.authorNumero">
+        <a (click)="opzioniPost(postMod)"><i class="bi bi-eyeglasses"></i></a>
+      </div>
+
+    </div>
+    <div class="spaziale"></div>
+    <div class="main-card">
+      <h5>{{ postMod.title }}</h5>
+      <img
+        *ngIf="postMod.fotografia"
+        class="m-auto"
+        src="http://{{postMod.fotografia}}"
+        alt=""
+      />
+      <div *ngIf="postMod.linko" >  {{postMod.linko}} </div>
+      <p>{{ postMod.body }}</p>
+      <!-- <iframe *ngIf="post.link" width="450" height="315" src="{{post.link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br> -->
+      <i> {{ postMod.date }}</i>
+    </div>
+    <div class="spaziale"></div>
+    <div class="footer-card" *ngIf="user?.user?.id == postMod.authorNumero">
+      <a  (click)="modificaPost()"> Modifica</a>
+      <a (click)="eliminaPost(postMod.id)"> Elimina</a>
+    </div> 
+  </div>
 </div>
+

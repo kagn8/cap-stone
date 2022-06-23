@@ -10,10 +10,24 @@ import { ServiceMainService } from '../service-main.service';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
-  user!:AuthData|null 
+  user!:AuthData|null;
+  postMod!:IPosts
 
+  opzPost:boolean=false;
+  opzioniPost(post:any){
+    
+    this.postMod=post
+    this.opzPost=!this.opzPost
+  }
+  modificaPost(){}
+
+  
   constructor(private post:ServiceMainService, private homeAuth:AuthService, ) { }
-
+  
+  eliminaPost(id:number){
+    this.post.removePost(id).subscribe((res:IPosts)=>{ console.log(res);
+     this.visualizzaPosts(); alert("Post eliminato correttamente"); this.opzPost=false})
+  }
   home:IPosts[]=[]
   visualizzaPosts(){
     this.post.getPosts().subscribe(res=>{this.home=res.reverse()})

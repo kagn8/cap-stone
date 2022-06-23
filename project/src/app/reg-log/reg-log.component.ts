@@ -33,8 +33,13 @@ export class RegLogComponent implements OnInit {
   ngOnInit(): void {
   }
   registrati(){
-    this.regServ.register(this.authUser).subscribe(res=>{console.log(res);})}
+    this.regServ.register(this.authUser).subscribe(res=>{console.log(res);})
+  }
 
+    seiLoggato(){
+      if(localStorage.getItem("token") != null){this.accedi=false; this.carico=false; console.log(this.accedi);
+      }
+    }
     entra(){
       this.AuthService.login(this.authLogin).subscribe((res:any)=>{console.log(res); this.carico=true; console.log(this.accedi);
       
@@ -44,12 +49,8 @@ export class RegLogComponent implements OnInit {
           
           this.router.navigate([''])
         }
-      })
-    }
-    seiLoggato(){
-        if(localStorage.getItem("token") != null){this.accedi=false; this.carico=false; console.log(this.accedi);
-        }
-    }
+  })
+}
 }
 
 

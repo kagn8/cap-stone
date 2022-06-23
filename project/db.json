@@ -9,6 +9,16 @@
       "vipmember": true,
       "creationdate": "2/5/2022 12:26",
       "id": 1
+    },
+    {
+      "email": "email@email.it",
+      "password": "$2a$10$B0KomZwwQpsdekKJs4z1teFjrYM46ZwFcw..jA4JZmw71ENgRBkmi",
+      "name": "Mario",
+      "surname": "Ciao",
+      "username": "mariaenzo1982",
+      "vipmember": true,
+      "creationdate": "4/5/2022 11:17",
+      "id": 2
     }
   ],
   "posts": [
@@ -33,26 +43,6 @@
       "authorNumero": 1
     },
     {
-      "id": 3,
-      "title": "foto",
-      "body": "foto",
-      "date": "3/5/2022 18:2",
-      "fotografia": "picsum.photos/200/300",
-      "linko": "",
-      "author": "Francesco Cagnotto",
-      "authorNumero": 1
-    },
-    {
-      "id": 4,
-      "title": "foto",
-      "body": "foto",
-      "date": "3/5/2022 18:4",
-      "fotografia": "picsum.photos/200/300",
-      "linko": "",
-      "author": "Francesco Cagnotto",
-      "authorNumero": 1
-    },
-    {
       "id": 5,
       "title": "gattini",
       "body": "Ancora non capisco perché non mettiate i gattini nelle vostre app",
@@ -63,12 +53,22 @@
       "authorNumero": 1
     },
     {
-      "id": 6,
-      "title": "prova video",
-      "body": "prova video",
-      "date": "3/5/2022 18:48",
-      "fotografia": "ciao",
-      "linko": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/dQw4w9WgXcQ\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
+      "id": 7,
+      "title": "Hey amici",
+      "body": "Sono Io Mario",
+      "date": "4/5/2022 11:19",
+      "fotografia": "",
+      "linko": "",
+      "author": "Mario Ciao",
+      "authorNumero": 2
+    },
+    {
+      "id": 8,
+      "title": "Gattino",
+      "body": "Gattino",
+      "date": "4/5/2022 12:20",
+      "fotografia": "placekitten.com/320/300",
+      "linko": "",
       "author": "Francesco Cagnotto",
       "authorNumero": 1
     }
