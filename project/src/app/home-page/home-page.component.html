@@ -53,12 +53,13 @@
     <div class="spaziale"></div>
     <div class="main-card">
       <h5>{{ post.title }}</h5>
-      <img
+      <!-- <img
         *ngIf="post.fotografia"
         class="m-auto"
         src="http://{{post.fotografia}}"
         alt=""
-      />
+      /> -->
+      <img *ngIf="post.fotografia" [src]="post.fotografia">
       <div *ngIf="post.linko" >  {{post.linko}} </div>
       <p>{{ post.body }}</p>
       <!-- <iframe *ngIf="post.link" width="450" height="315" src="{{post.link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br> -->
