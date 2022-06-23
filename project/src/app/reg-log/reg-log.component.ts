@@ -37,15 +37,15 @@ export class RegLogComponent implements OnInit {
   }
 
     seiLoggato(){
-      if(localStorage.getItem("token") != null){this.accedi=false; this.carico=false; console.log(this.accedi);
+      if(localStorage.getItem("token") != null){this.accedi=false; this.carico=false; ;
       }
     }
     entra(){
-      this.AuthService.login(this.authLogin).subscribe((res:any)=>{console.log(res); this.carico=true; console.log(this.accedi);
+      this.AuthService.login(this.authLogin).subscribe((res:any)=>{console.log(res); this.carico=true;
       
         this.AuthService.saveUser(res.accessToken); this.seiLoggato()
         if (!this.accedi) {
-          console.log(this.accedi);
+          ;
           
           this.router.navigate([''])
         }
