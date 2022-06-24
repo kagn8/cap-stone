@@ -12,8 +12,10 @@ import { ServiceMainService } from '../service-main.service';
 })
 export class HomePageComponent implements OnInit {
   user!:AuthData|null;
+
   postMod!:IPosts
-  form!:FormGroup;
+
+ 
 
   opzPost:boolean=false;
   modifica:boolean=false;
@@ -23,12 +25,18 @@ export class HomePageComponent implements OnInit {
     this.postMod=post
     this.opzPost=!this.opzPost
   }
-  updatePost(){}
-
+  
+  upPost:any={
+    title:""
+  }
 
   modificaPost(){
     this.modifica=!this.modifica
     this.opzPost=!this.opzPost
+
+    
+
+    this.upPost.title=this.postMod.title
   }
 
   annulla(){}
@@ -40,21 +48,37 @@ export class HomePageComponent implements OnInit {
     this.post.removePost(id).subscribe((res:IPosts)=>{ console.log(res);
      this.visualizzaPosts(); alert("Post eliminato correttamente"); this.opzPost=false})
   }
+
+
   home:IPosts[]=[]
   visualizzaPosts(){
     this.post.getPosts().subscribe(res=>{this.home=res.reverse()})
   }
+
+  
+  
+
   ngOnInit(): void {
     this.visualizzaPosts()
 
     this.homeAuth.loginObs.subscribe((res)=>{
       this.user = res;})
 
-      this.form = this.forms.group({
-        title:this.forms.control(null, [Validators.required]),
-        body:this.forms.control(null, [Validators.required]),
-        fotografia:this.forms.control(null, [Validators.required]),
-        linko:this.forms.control(null, [Validators.required])
-      })
+      
   }
+
+  
+
+  updatePostino(postMod:IPosts, id:number){
+
+    
+
+    console.log(this.upPost.title);
+  
+    console.log(id);
+    
+    this.post.updatePost(postMod, id).subscribe((res:IPosts)=>{console.log(res); this.visualizzaPosts() 
+    })
+  }
+
 }

@@ -111,7 +111,7 @@
   <!-- MODIFICA -->
 
 
-  <form [formGroup]="form" (ngSubmit)="updatePost()">
+  
   <div *ngIf="modifica" class="card-p position p-1"> <div class="header-card">
     <img class="img-profilo" src="../assets/img/logo.png" alt="" srcset="" />
     <h4>{{ postMod.author }}</h4>
@@ -122,26 +122,35 @@
 
   </div>
   <div class="spaziale"></div>
+
+<!-- <form   > -->
   <div class="main-card">
       
-    <h5>{{ postMod.title }}</h5>
-    <img
-    *ngIf="postMod.fotografia"
-    class="m-auto"
-    src="http://{{postMod.fotografia}}"
-    alt=""
-    />
-    <div *ngIf="postMod.linko" >  {{postMod.linko}} </div>
-    <p>{{ postMod.body }}</p>
-    <!-- <iframe *ngIf="post.link" width="450" height="315" src="{{post.link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br> -->
+    <label for="">Modifica titolo:</label>
+    <input type="text" value="{{postMod.title}}" [(ngModel)]="upPost.title" class="form-control">
+
+    <label *ngIf="postMod.fotografia" for="">Modifica foto:</label>
+    <input type="text" *ngIf="postMod.fotografia" value="{{postMod.fotografia}}"  class="form-control">
+
+    <label *ngIf="postMod.linko" for="">Modifica Link:</label>
+    <input type="text" *ngIf="postMod.linko" value="{{postMod.linko}}" class="form-control"> 
+
+    <label for="">Modifica Corpo:</label>
+    <textarea class="form-control">{{ postMod.body }}</textarea>
+    
     <i> {{ postMod.date }}</i>
   </div>
+
+
   <div class="spaziale"></div>
   <div class="footer-card" *ngIf="user?.user?.id == postMod.authorNumero">
-    <a  (submit)="updatePost()">Salva</a>
-    <a (click)="annulla()">Annulla</a>
+    <button (click)="updatePostino(upPost, postMod.id)" class="btn btn-light">Salva post</button>
+    <button  class="btn btn-light">Annulla modifiche</button>
+    
   </div> 
+<!-- </form> -->
+  
 </div>
-</form>
+
 </div>
 
