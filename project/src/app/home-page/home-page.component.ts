@@ -60,10 +60,25 @@ export class HomePageComponent implements OnInit {
      this.visualizzaPosts(); alert("Post eliminato correttamente"); this.opzPost=false})
   }
 
-
+ x = '<iframe width="560" height="315" src="https://www.youtube.com/embed/OHdXBO8WDuc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
   home:IPosts[]=[]
   visualizzaPosts(){
-    this.post.getPosts().subscribe(res=>{this.home=res.reverse()})
+
+    this.post.getPosts().subscribe(res=>{
+      // res = res.map(p=>{ 
+      //   let div = document.createElement('div')
+      //   div.innerHTML=p.linko
+      //   let p2 = Object.assign({}, p)
+      //   p2.linko=div
+      //   console.log(p2);
+        
+      //   console.log(typeof div);
+        
+      //   return p2
+      // })
+      this.home=res.reverse()
+    
+    })
   }
 
   
