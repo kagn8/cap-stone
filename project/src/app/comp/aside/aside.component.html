@@ -1,53 +1,82 @@
 <div class="aside">
-    
-    <div class="flex">
-    <div id="box"  class="gradient-border"><img *ngIf="user" class="img-raimbow" [routerLink]="['/profilo-utente']" src="../../../assets/img/foto-prof.jpg"  alt=""> <img *ngIf="!user" class="img-raimbow" [routerLink]="['/profilo-utente']" src="../../../assets/img/logo.png"  alt=""></div> <div></div> <a [routerLink]="['/profilo-utente']"> <h6 *ngIf="!user">Accedi per continuare</h6><h6  *ngIf="user">{{user.user.name}} {{user.user.surname}}</h6></a>
-    </div><br><hr>
-    <div class="flex">
-        <i class="bi bi-file-earmark-plus" ></i> <a (click)="nuovoOn()"> <h6  >Scrivi post</h6></a>
+  <div class="flex">
+    <div id="box" class="gradient-border">
+      <img
+        *ngIf="user"
+        class="img-raimbow"
+        [routerLink]="['/profilo-utente']"
+        src="../../../assets/img/foto-prof.jpg"
+        alt=""
+      />
+      <img
+        *ngIf="!user"
+        class="img-raimbow"
+        [routerLink]="['/profilo-utente']"
+        src="../../../assets/img/logo.png"
+        alt=""
+      />
     </div>
-    <div class="flex">
-        <i class="bi bi-camera"></i> <a (click)="nuovoPh()"> <h6>Carica foto</h6></a>
-    </div>
-    <div class="flex">
-        <i class="bi bi-link-45deg"></i> <a (click)="nuovoLink()"> <h6>Posta video</h6></a>
-    </div>
-    
+    <div></div>
+    <a [routerLink]="['/profilo-utente']">
+      <h6 *ngIf="!user">Accedi per continuare</h6>
+      <h6 *ngIf="user">{{ user.user.name }} {{ user.user.surname }}</h6></a
+    >
+  </div>
+  <br />
+  <hr />
+  <div class="flex">
+    <i class="bi bi-file-earmark-plus"></i>
+    <a (click)="nuovoOn()"> <h6>Scrivi post</h6></a>
+  </div>
+  <div class="flex">
+    <i class="bi bi-camera"></i>
+    <a (click)="nuovoPh()"> <h6>Carica foto</h6></a>
+  </div>
+  <div class="flex">
+    <i class="bi bi-link-45deg"></i>
+    <a (click)="nuovoLink()"> <h6>Posta video</h6></a>
+  </div>
 </div>
 
-<div class="aside" id="asideNew" *ngIf="modalNuovoPost" >
-<form action="" [formGroup]="form" (ngSubmit)="creaNuovo()">
-    <label for="">Titolo:</label>    
-    <input type="text" class="form-control"  formControlName="title">
+<div class="aside" id="asideNew" *ngIf="modalNuovoPost">
+  <form action="" [formGroup]="form" (ngSubmit)="creaNuovo()">
+    <label for="">Titolo:</label>
+    <input type="text" class="form-control" formControlName="title" />
     <label for="">Testo:</label>
-    <textarea  class="form-control grande"  formControlName="body"></textarea>
-  
-    <div class="text-end"><button class="btn btn-light mt-3" type="submit">Crea post</button></div>
-</form>
+    <textarea class="form-control grande" formControlName="body"></textarea>
+
+    <div class="text-end">
+      <button class="btn btn-light mt-3" type="submit">Crea post</button>
+    </div>
+  </form>
 </div>
 
-<div class="aside" id="asideNew" *ngIf="modalNuovoPh" >
-<form action="" [formGroup]="form" (ngSubmit)="creaNuovoPh()">
-    <label for="">Titolo:</label>    
-    <input type="text" class="form-control"  formControlName="title">
+<div class="aside" id="asideNew" *ngIf="modalNuovoPh">
+  <form action="" [formGroup]="form" (ngSubmit)="creaNuovoPh()">
+    <label for="">Titolo:</label>
+    <input type="text" class="form-control" formControlName="title" />
     <label for="">link Foto:</label>
-    <input type="text" class="form-control"  formControlName="fotografia">
+    <input type="text" class="form-control" formControlName="fotografia" />
     <label for="">Testo:</label>
-    <textarea  class="form-control grande"  formControlName="body"></textarea>
-   
-    <div class="text-end"><button class="btn btn-light mt-3" type="submit">Crea post</button></div>
-</form>
+    <textarea class="form-control grande" formControlName="body"></textarea>
+
+    <div class="text-end">
+      <button class="btn btn-light mt-3" type="submit">Crea post</button>
+    </div>
+  </form>
 </div>
 
-<div class="aside" id="asideNew" *ngIf="modalNuovoLink" >
-<form action="" [formGroup]="form" (ngSubmit)="creaNuovoLink()">
-    <label for="">Titolo:</label>    
-    <input type="text" class="form-control"  formControlName="title">
+<div class="aside" id="asideNew" *ngIf="modalNuovoLink">
+  <form action="" [formGroup]="form" (ngSubmit)="creaNuovoLink()">
+    <label for="">Titolo:</label>
+    <input type="text" class="form-control" formControlName="title" />
     <label for="">link Youtube:</label>
-    <input type="text" class="form-control"  formControlName="linko">
+    <input type="text" class="form-control" formControlName="linko" />
     <label for="">Testo:</label>
-    <textarea  class="form-control grande"  formControlName="body"></textarea>
-   
-    <div class="text-end"><button class="btn btn-light mt-3" type="submit">Crea post</button></div>
-</form>
+    <textarea class="form-control grande" formControlName="body"></textarea>
+
+    <div class="text-end">
+      <button class="btn btn-light mt-3" type="submit">Crea post</button>
+    </div>
+  </form>
 </div>

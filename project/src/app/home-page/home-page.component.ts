@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AuthData, AuthService } from '../auth-service.service';
 import { IPosts } from '../posts';
@@ -12,17 +13,28 @@ import { ServiceMainService } from '../service-main.service';
 export class HomePageComponent implements OnInit {
   user!:AuthData|null;
   postMod!:IPosts
+  form!:FormGroup;
 
   opzPost:boolean=false;
+  modifica:boolean=false;
+
   opzioniPost(post:any){
     
     this.postMod=post
     this.opzPost=!this.opzPost
   }
-  modificaPost(){}
+  updatePost(){}
+
+
+  modificaPost(){
+    this.modifica=!this.modifica
+    this.opzPost=!this.opzPost
+  }
+
+  annulla(){}
 
   
-  constructor(private post:ServiceMainService, private homeAuth:AuthService, ) { }
+  constructor(private post:ServiceMainService, private homeAuth:AuthService, private forms:FormBuilder) { }
   
   eliminaPost(id:number){
     this.post.removePost(id).subscribe((res:IPosts)=>{ console.log(res);
@@ -37,5 +49,12 @@ export class HomePageComponent implements OnInit {
 
     this.homeAuth.loginObs.subscribe((res)=>{
       this.user = res;})
+
+      this.form = this.forms.group({
+        title:this.forms.control(null, [Validators.required]),
+        body:this.forms.control(null, [Validators.required]),
+        fotografia:this.forms.control(null, [Validators.required]),
+        linko:this.forms.control(null, [Validators.required])
+      })
   }
 }
