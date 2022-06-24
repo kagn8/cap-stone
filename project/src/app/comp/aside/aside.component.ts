@@ -89,7 +89,7 @@ export class AsideComponent implements OnInit {
     
      let giorgio = this.form.value.title;
      console.log(giorgio);
-    let nuovo = new ClassPosts(0, this.form.value.title, this.form.value.body, "", this.form.value.linko, `${this.user?.user.name} ${this.user?.user.surname}`, this.user?.user.id)
+    let nuovo = new ClassPosts(0, this.form.value.title, this.form.value.body, "", `https://www.youtube.com/embed/${this.form.value.linko}`, `${this.user?.user.name} ${this.user?.user.surname}`, this.user?.user.id)
     this.caricamento=true
     this.newPost.createNewPost(nuovo).subscribe((res: any)=>{console.log(res); this.caricamento=false;})
     // this.form = this.forms.group({

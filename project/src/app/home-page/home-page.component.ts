@@ -60,7 +60,7 @@ export class HomePageComponent implements OnInit {
      this.visualizzaPosts(); alert("Post eliminato correttamente"); this.opzPost=false})
   }
 
- x = '<iframe width="560" height="315" src="https://www.youtube.com/embed/OHdXBO8WDuc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+ 
   home:IPosts[]=[]
   visualizzaPosts(){
 
@@ -96,14 +96,7 @@ export class HomePageComponent implements OnInit {
   
 
   updatePostino(postMod:IPosts, id:number){
-
-    
-
-    //console.log(this.upPost.title);
-  
-    console.log(id);
-    
-    this.post.updatePost(postMod, id).subscribe((res:IPosts)=>{console.log(res); this.visualizzaPosts(); alert("post aggiornato correttamente"); this.modifica=false
+    this.post.updatePost(postMod, id).subscribe((res:IPosts)=>{ this.visualizzaPosts(); alert("post aggiornato correttamente"); this.modifica=false
     })
   }
 
