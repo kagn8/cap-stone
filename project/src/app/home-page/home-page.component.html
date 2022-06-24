@@ -79,8 +79,8 @@
   <div *ngIf="opzPost" class="card-p position p-1"> <div class="header-card">
       <img class="img-profilo" src="../assets/img/logo.png" alt="" srcset="" />
       <h4>{{ postMod.author }}</h4>
-      <div *ngIf="user?.user?.id == postMod.authorNumero">
-        <a (click)="opzioniPost(postMod)"><i class="bi bi-x-circle mt-5 me-3"></i></a>
+      <div >
+        <a (click)="opzPost=false"><i class="bi bi-x-circle"></i></a>
       </div>
       
 
@@ -130,13 +130,13 @@
     <input type="text" value="{{postMod.title}}" [(ngModel)]="upPost.title" class="form-control">
 
     <label *ngIf="postMod.fotografia" for="">Modifica foto:</label>
-    <input type="text" *ngIf="postMod.fotografia" value="{{postMod.fotografia}}"  class="form-control">
+    <input type="text" *ngIf="postMod.fotografia" value="{{postMod.fotografia}}" [(ngModel)]="upPost.fotografia" class="form-control">
 
     <label *ngIf="postMod.linko" for="">Modifica Link:</label>
-    <input type="text" *ngIf="postMod.linko" value="{{postMod.linko}}" class="form-control"> 
+    <input type="text" *ngIf="postMod.linko" value="{{postMod.linko}}" [(ngModel)]="upPost.linko" class="form-control"> 
 
     <label for="">Modifica Corpo:</label>
-    <textarea class="form-control">{{ postMod.body }}</textarea>
+    <textarea class="form-control"[(ngModel)]="upPost.body"> </textarea>
     
     <i> {{ postMod.date }}</i>
   </div>
@@ -144,8 +144,8 @@
 
   <div class="spaziale"></div>
   <div class="footer-card" *ngIf="user?.user?.id == postMod.authorNumero">
-    <button (click)="updatePostino(upPost, postMod.id)" class="btn btn-light">Salva post</button>
-    <button  class="btn btn-light">Annulla modifiche</button>
+    <a (click)="updatePostino(upPost, postMod.id)" >Salva post</a>
+    <a  (click)="annulla()" >Annulla modifiche</a>
     
   </div> 
 <!-- </form> -->

@@ -27,7 +27,10 @@ export class HomePageComponent implements OnInit {
   }
   
   upPost:any={
-    title:""
+    title:"",
+    body:"",
+    linko:"",
+    fotografia:""
   }
 
   modificaPost(){
@@ -37,9 +40,17 @@ export class HomePageComponent implements OnInit {
     
 
     this.upPost.title=this.postMod.title
+    this.upPost.body=this.postMod.body
+    this.upPost.linko=this.postMod.linko
+    this.upPost.fotografia=this.postMod.fotografia
   }
 
-  annulla(){}
+  annulla(){ 
+    this.upPost.title=this.postMod.title
+    this.upPost.body=this.postMod.body
+    this.upPost.linko=this.postMod.linko
+    this.upPost.fotografia=this.postMod.fotografia
+  }
 
   
   constructor(private post:ServiceMainService, private homeAuth:AuthService, private forms:FormBuilder) { }
@@ -73,11 +84,11 @@ export class HomePageComponent implements OnInit {
 
     
 
-    console.log(this.upPost.title);
+    //console.log(this.upPost.title);
   
     console.log(id);
     
-    this.post.updatePost(postMod, id).subscribe((res:IPosts)=>{console.log(res); this.visualizzaPosts() 
+    this.post.updatePost(postMod, id).subscribe((res:IPosts)=>{console.log(res); this.visualizzaPosts(); alert("post aggiornato correttamente"); this.modifica=false
     })
   }
 
