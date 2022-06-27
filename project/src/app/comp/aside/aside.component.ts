@@ -55,7 +55,7 @@ export class AsideComponent implements OnInit {
     let nuovo = new ClassPosts(0, this.form.value.title, this.form.value.body, "", "", `${this.user?.user.name} ${this.user?.user.surname}`, this.user?.user.id)
 
     this.caricamento=true
-    this.newPost.createNewPost(nuovo).subscribe((res: any)=>{console.log(res); this.caricamento=false;})
+    this.newPost.createNewPost(nuovo).subscribe((res: any)=>{console.log(res); this.caricamento=false; alert("post creato"); window.location.reload()})
     // this.form = this.forms.group({
     //   title:[null, [Validators.required]],
     //   body:[null, [Validators.required]]
@@ -74,7 +74,7 @@ export class AsideComponent implements OnInit {
     let nuovo = new ClassPosts(0, this.form.value.title, this.form.value.body, this.foto, "", `${this.user?.user.name} ${this.user?.user.surname}`, this.user?.user.id)
 
     this.caricamento=true
-    this.newPost.createNewPost(nuovo).subscribe((res: any)=>{console.log(res); this.caricamento=false;})
+    this.newPost.createNewPost(nuovo).subscribe((res: any)=>{console.log(res); this.caricamento=false; alert("post creato"); window.location.reload()})
     // this.form = this.forms.group({
     //   title:[null, [Validators.required]],
     //   body:[null, [Validators.required]]
@@ -87,11 +87,11 @@ export class AsideComponent implements OnInit {
   }
   creaNuovoLink(){
     
-     let giorgio = this.form.value.title;
-     console.log(giorgio);
+    //  let giorgio = this.form.value.title;
+    //  console.log(giorgio);
     let nuovo = new ClassPosts(0, this.form.value.title, this.form.value.body, "", `https://www.youtube.com/embed/${this.form.value.linko}`, `${this.user?.user.name} ${this.user?.user.surname}`, this.user?.user.id)
     this.caricamento=true
-    this.newPost.createNewPost(nuovo).subscribe((res: any)=>{console.log(res); this.caricamento=false;})
+    this.newPost.createNewPost(nuovo).subscribe((res: any)=>{console.log(res); this.caricamento=false; alert("post creato"); window.location.reload()})
     // this.form = this.forms.group({
     //   title:[null, [Validators.required]],
     //   body:[null, [Validators.required]]

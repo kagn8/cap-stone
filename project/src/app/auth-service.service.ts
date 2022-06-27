@@ -8,7 +8,7 @@ export interface AuthData {
   accessToken: string;
   user: {
     email: string;
-    id: string;
+    id: number;
     name: string;
     surname:string
   }

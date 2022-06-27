@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AuthData, AuthService } from '../auth-service.service';
-import { IPosts } from '../posts';
+import { Icomment, IPosts } from '../posts';
 import { ServiceMainService } from '../service-main.service';
 
 @Component({
@@ -11,6 +11,7 @@ import { ServiceMainService } from '../service-main.service';
   styleUrls: ['./home-page.component.scss']
 })
 export class HomePageComponent implements OnInit {
+
   user!:AuthData|null;
 
   postMod!:IPosts
@@ -79,6 +80,76 @@ export class HomePageComponent implements OnInit {
       this.home=res.reverse()
     
     })
+  }
+  // arr:number[]=[];
+  like(post:IPosts){
+    //  console.log(post.likedBy); 
+    //  console.log(post.id); 
+    //  console.log(post); 
+    //  console.log(this.user?.user.id);
+    //  console.log(post.likedBy.filter( n => n== this.user?.user.id! ));
+    //  console.log(post.likedBy.find(n => n== this.user?.user.id!));
+    //  if(post.likedBy.find(n => n== this.user?.user.id!)){   
+    // }
+    // }else{ 
+    //   post.likedBy.push(this.user?.user.id!)
+    //   this.post.updatePost(post, post.id).subscribe((res:IPosts)=>{ this.visualizzaPosts(); console.log(post); 
+    //  })
+    if(post.likedBy.find(n => n== this.user?.user.id!)){
+      post.likedBy.splice(post.likedBy.indexOf(this.user?.user.id!),1)
+      this.post.updatePost(post, post.id).subscribe((res:IPosts)=>{ this.visualizzaPosts();})
+    }else{
+      post.likedBy.push(this.user?.user.id!)
+      this.post.updatePost(post, post.id).subscribe((res:IPosts)=>{ this.visualizzaPosts();})
+    }
+    // this.arr=[2,4,1,5]
+    // this.arr.indexOf(this.user?.user.id!)
+    // console.log(this.arr.indexOf(this.user?.user.id!));
+    // this.arr.splice(this.arr.indexOf(this.user?.user.id!),1)
+    // console.log(this.arr);
+
+  }
+  commento:Icomment=
+  {
+    autore:``,
+    testo:""
+  }
+  addComment:boolean=false;
+  commenta:boolean=false;
+  comPost!:IPosts
+
+
+  c!:any;
+  comment(post:IPosts){
+    this.addComment=!this.addComment
+   this.commento={
+    autore:`${this.user?.user.name} ${this.user?.user.surname}`,
+    testo:""
+   }
+  //  console.log(this.commento.autore);
+   
+   
+  
+
+   
+  }
+  inviaCommento(post:IPosts){
+    // console.log(post.comment);
+    post.comment.push(this.commento)
+    this.post.updatePost(post, post.id).subscribe((res:IPosts)=>{ this.visualizzaPosts(); console.log(post);
+    })
+    console.log(post.comment);
+    
+    
+    
+  }
+  getCommenti(post:IPosts){
+    this.commenta=!this.commenta
+    this.c=post.comment
+    console.log(this.c);
+    this.comPost=post
+    this.opzPost=false
+    
   }
 
   

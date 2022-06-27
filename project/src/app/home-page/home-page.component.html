@@ -56,18 +56,47 @@
       <img
         *ngIf="post.fotografia"
         [src]="post.fotografia"
+        class="modFot"
       />
-      <div *ngIf="post.linko" >  <iframe width="560" height="315" [src]="post.linko" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </div>
+      <!-- <div *ngIf="post.linko" >  <iframe width="560" height="315" [src]="post.linko" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </div> -->
       <p>{{ post.body }}</p>
       
       <i> {{ post.date }}</i>
     </div>
     <div class="spaziale"></div>
     <div class="footer-card">
-      <a href=""> Like <i class="bi bi-hand-thumbs-up"></i></a>
-      <a href=""> Commenta</a>
+      <a (click)="like(post)"> {{post.likedBy.length}} Like <i class="bi bi-hand-thumbs-up"></i></a>
+      <a (click)="getCommenti(post);  addComment=false"> Commenta</a>
     </div>
+    <!-- <div  *ngIf="commenta">
+      <div *ngFor="let comm of c"><span  ><b>{{comm.autore}}</b>:{{comm.testo}}</span>
+      </div>
+      
+    </div> -->
+    <!-- <div *ngIf="commenta"> <button (click)="comment(post)" class="btn btn-light">Aggiungi Commento</button></div>
+    <div *ngIf="addComment"> 
+      <label for="">{{commento.autore}}:</label>
+      <input type="text" [(ngModel)]="commento.testo" placeholder="Scrivi commento">
+      <button class="btn btn-light" (click)="inviaCommento(post)">Invia</button>
+      
+    </div> -->
+    
   </div>
+
+  <div  *ngIf="commenta" class="card-p position p-1">
+      <div *ngFor="let comm of c"><span  ><b>{{comm.autore}}</b>:{{comm.testo}}</span>
+      </div>
+      
+      <div > <button (click)="comment(comPost)" class="btn btn-light">Aggiungi Commento</button></div>
+      <div *ngIf="addComment"> 
+        <label for="">{{commento.autore}}:</label>
+        <input type="text" [(ngModel)]="commento.testo" placeholder="Scrivi commento">
+        <button class="btn btn-light" (click)="inviaCommento(comPost)">Invia</button>
+    </div>
+     
+    </div>
+
+  
 
 
 
@@ -91,6 +120,7 @@
       <img
         *ngIf="postMod.fotografia"
         [src]="postMod.fotografia"
+        class="modFot"
       />
       <div *ngIf="postMod.linko" >  {{postMod.linko}} </div>
       <p>{{ postMod.body }}</p>

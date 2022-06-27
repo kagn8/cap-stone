@@ -9,7 +9,7 @@
 
 .card-p{
     
-    height: auto;
+    // height: auto;
     width: 25vw;
     background: rgb(179,178,178);
     background: -moz-linear-gradient(0deg, rgba(179,178,178,1) 0%, rgba(255,248,248,1) 100%);
@@ -26,8 +26,11 @@
     top: 50vh;
     right: 15px;
     width: 20vw;
-    height: auto;
+    
     margin: 0;
+    .modFot{
+        height: 20vh;
+    }
     
 }
 }

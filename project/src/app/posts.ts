@@ -6,5 +6,12 @@ export interface IPosts {
     fotografia:string;
     linko:any;
     author:string;
-    authorNumero:any
+    authorNumero:any;
+    likedBy:number[];
+    comment:Icomment[]
+}
+
+export interface Icomment {
+    autore:string;
+    testo:string
 }
