@@ -43,7 +43,9 @@
       "linko": "",
       "author": "Francesco Cagnotto",
       "authorNumero": 1,
-      "likedBy": [],
+      "likedBy": [
+        1
+      ],
       "comment": []
     },
     {
@@ -55,7 +57,9 @@
       "linko": "",
       "author": "Francesco Cagnotto",
       "authorNumero": 1,
-      "likedBy": [],
+      "likedBy": [
+        1
+      ],
       "comment": []
     },
     {
@@ -79,41 +83,15 @@
       "linko": "",
       "author": "Francesco Cagnotto",
       "authorNumero": 1,
-      "likedBy": [],
+      "likedBy": [
+        1
+      ],
       "comment": [
         {
           "autore": "Francesco Cagnotto",
           "testo": "Questo gatto è bellissimo"
         }
       ]
-    },
-    {
-      "id": 10,
-      "title": "video",
-      "body": "video",
-      "date": "5/5/2022 14:23",
-      "fotografia": "",
-      "linko": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/dQw4w9WgXcQ\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture\" allowfullscreen></iframe>",
-      "author": "Francesco Cagnotto",
-      "authorNumero": 1,
-      "likedBy": [
-        1
-      ],
-      "comment": []
-    },
-    {
-      "id": 11,
-      "title": "video",
-      "body": "video",
-      "date": "5/5/2022 18:0",
-      "fotografia": "",
-      "linko": "dQw4w9WgXcQ",
-      "author": "Francesco Cagnotto",
-      "authorNumero": 1,
-      "likedBy": [
-        1
-      ],
-      "comment": []
     },
     {
       "id": 12,
@@ -128,79 +106,6 @@
         1
       ],
       "comment": []
-    },
-    {
-      "id": 13,
-      "title": "nuovo post",
-      "body": "prova caricamento",
-      "date": "1/5/2022 9:23",
-      "fotografia": "",
-      "linko": "",
-      "author": "Francesco Cagnotto",
-      "authorNumero": 1,
-      "likedBy": [],
-      "comment": [
-        {
-          "autore": "Francesco Cagnotto",
-          "testo": "Ciao"
-        }
-      ]
-    },
-    {
-      "id": 14,
-      "title": "prova",
-      "body": " prova",
-      "date": "1/5/2022 9:24",
-      "fotografia": "",
-      "linko": "",
-      "author": "Francesco Cagnotto",
-      "authorNumero": 1,
-      "likedBy": [],
-      "comment": [
-        {
-          "autore": "Francesco Cagnotto",
-          "testo": "hey hey"
-        }
-      ]
-    },
-    {
-      "id": 15,
-      "title": "prova",
-      "body": "caricamento",
-      "date": "1/5/2022 9:25",
-      "fotografia": "",
-      "linko": "",
-      "author": "Francesco Cagnotto",
-      "authorNumero": 1,
-      "likedBy": [
-        1
-      ],
-      "comment": [
-        {
-          "autore": "Francesco Cagnotto",
-          "testo": "hey"
-        },
-        {
-          "autore": "Francesco Cagnotto",
-          "testo": "hey"
-        },
-        {
-          "autore": "Francesco Cagnotto",
-          "testo": "ciao"
-        },
-        {
-          "autore": "Francesco Cagnotto",
-          "testo": "ciao"
-        },
-        {
-          "autore": "Francesco Cagnotto",
-          "testo": "come stai??"
-        },
-        {
-          "autore": "Francesco Cagnotto",
-          "testo": "cane"
-        }
-      ]
     }
   ]
 }
