@@ -1,3 +1,5 @@
+<!-- TODO -->
+<!-- Blurrare -->
 <div class="aside">
   <div class="flex">
     <div id="box" class="gradient-border">
@@ -39,6 +41,7 @@
 </div>
 
 <div class="aside" id="asideNew" *ngIf="modalNuovoPost">
+  <h2>Crea Post:</h2>
   <form action="" [formGroup]="form" (ngSubmit)="creaNuovo()">
     <label for="">Titolo:</label>
     <input type="text" class="form-control" formControlName="title" />
@@ -46,12 +49,13 @@
     <textarea class="form-control grande" formControlName="body"></textarea>
 
     <div class="text-end">
-      <button class="btn btn-light mt-3" type="submit">Crea post</button>
+      <button class="btn btn-light mt-3 colorino" type="submit">Crea post</button>
     </div>
   </form>
 </div>
 
 <div class="aside" id="asideNew" *ngIf="modalNuovoPh">
+  <h2>Crea Post:</h2>
   <form action="" [formGroup]="form" (ngSubmit)="creaNuovoPh()">
     <label for="">Titolo:</label>
     <input type="text" class="form-control" formControlName="title" />
@@ -61,12 +65,13 @@
     <textarea class="form-control grande" formControlName="body"></textarea>
 
     <div class="text-end">
-      <button class="btn btn-light mt-3" type="submit">Crea post</button>
+      <button class="btn btn-light mt-3 colorino" type="submit">Crea post</button>
     </div>
   </form>
 </div>
 
 <div class="aside" id="asideNew" *ngIf="modalNuovoLink">
+  <h2>Crea Post:</h2>
   <form action="" [formGroup]="form" (ngSubmit)="creaNuovoLink()">
     <label for="">Titolo:</label>
     <input type="text" class="form-control" formControlName="title" />
@@ -76,7 +81,7 @@
     <textarea class="form-control grande" formControlName="body"></textarea>
 
     <div class="text-end">
-      <button class="btn btn-light mt-3" type="submit">Crea post</button>
+      <button class="btn btn-light mt-3 colorino" type="submit">Crea post</button>
     </div>
   </form>
 </div>

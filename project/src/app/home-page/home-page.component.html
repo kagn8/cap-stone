@@ -39,9 +39,11 @@
   <!-- </div> -->
   <!-- -->
   <div class="card-p p-1" *ngFor="let post of home">
-    <div class="header-card">
-      <img class="img-profilo" src="../assets/img/logo.png" alt="" srcset="" />
-      <h4>{{ post.author }}</h4>
+    <div class="header-card p-1">
+      <!-- TODO -->
+      <!-- mettere cerchietto alle foto --> <div class="header-card"><img class="img-profilo" src="../../assets/img/foto-prof.jpg" alt="" srcset="" />
+      <h4 class="ms-2 mt-2">{{ post.author }}</h4></div>
+      
       <div *ngIf="user?.user?.id == post.authorNumero">
         <a (click)="opzioniPost(post)"><i class="bi bi-three-dots-vertical"></i></a>
       </div>
@@ -50,23 +52,25 @@
       </div>
 
     </div>
-    <div class="spaziale"></div>
-    <div class="main-card">
-      <h5>{{ post.title }}</h5>
+    <div class="spaziale1"></div>
+    <div class="main-card p-3">
+      <h4>{{ post.title }}</h4>
+      <p>{{ post.body }}</p>
       <img
         *ngIf="post.fotografia"
         [src]="post.fotografia"
         class="modFot"
       />
       <!-- <div *ngIf="post.linko" >  <iframe width="560" height="315" [src]="post.linko" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </div> -->
-      <p>{{ post.body }}</p>
+      
       
       <i> {{ post.date }}</i>
     </div>
     <div class="spaziale"></div>
     <div class="footer-card">
-      <a (click)="like(post)"> {{post.likedBy.length}} Like <i class="bi bi-hand-thumbs-up"></i></a>
-      <a (click)="getCommenti(post);  addComment=false"> Commenta</a>
+      <a (click)="like(post)" *ngIf="tiPiace"> {{post.likedBy.length}}<i class="bi bi-heart-fill ms-2 grosse"></i></a>
+      <a (click)="like(post)" *ngIf="!tiPiace"> {{post.likedBy.length}}<i class="bi bi-heart ms-2 grosse"></i></a>
+      <a (click)="getCommenti(post);  addComment=false">{{post.comment.length}}<i class="bi bi-chat-text ms-2 grosse"></i> </a>
     </div>
     <!-- <div  *ngIf="commenta">
       <div *ngFor="let comm of c"><span  ><b>{{comm.autore}}</b>:{{comm.testo}}</span>
@@ -82,16 +86,18 @@
     </div> -->
     
   </div>
-
+  <!-- TODO -->
+  <!-- levare tasto aggiungi commenti, numero commenti -->
   <div  *ngIf="commenta" class="card-p position p-1">
-      <div *ngFor="let comm of c"><span  ><b>{{comm.autore}}</b>:{{comm.testo}}</span>
+      <div *ngFor="let comm of c" class="px-1"><span  m-2><b>{{comm.autore}}</b>: {{comm.testo}}</span>
+        <div class="spaziale"></div>
       </div>
       
-      <div > <button (click)="comment(comPost)" class="btn btn-light">Aggiungi Commento</button></div>
+      <div > <button (click)="comment(comPost)" class="btn coloreInvia">Aggiungi Commento</button></div>
       <div *ngIf="addComment"> 
         <label for="">{{commento.autore}}:</label>
-        <input type="text" [(ngModel)]="commento.testo" placeholder="Scrivi commento">
-        <button class="btn btn-light" (click)="inviaCommento(comPost)">Invia</button>
+        <input type="text" [(ngModel)]="commento.testo" placeholder="Scrivi commento" class="form-control">
+        <button class="btn coloreInvia" (click)="inviaCommento(comPost)">Invia</button>
     </div>
      
     </div>

@@ -81,6 +81,7 @@ export class HomePageComponent implements OnInit {
     
     })
   }
+  tiPiace:boolean=false
   // arr:number[]=[];
   like(post:IPosts){
     //  console.log(post.likedBy); 
@@ -97,10 +98,11 @@ export class HomePageComponent implements OnInit {
     //  })
     if(post.likedBy.find(n => n== this.user?.user.id!)){
       post.likedBy.splice(post.likedBy.indexOf(this.user?.user.id!),1)
-      this.post.updatePost(post, post.id).subscribe((res:IPosts)=>{ this.visualizzaPosts();})
+      this.post.updatePost(post, post.id).subscribe((res:IPosts)=>{ this.visualizzaPosts(); this.tiPiace=!this.tiPiace;
+      })
     }else{
       post.likedBy.push(this.user?.user.id!)
-      this.post.updatePost(post, post.id).subscribe((res:IPosts)=>{ this.visualizzaPosts();})
+      this.post.updatePost(post, post.id).subscribe((res:IPosts)=>{ this.visualizzaPosts(); this.tiPiace=!this.tiPiace})
     }
     // this.arr=[2,4,1,5]
     // this.arr.indexOf(this.user?.user.id!)

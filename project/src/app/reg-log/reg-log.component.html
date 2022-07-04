@@ -6,7 +6,7 @@
             <input type="email" name="email" class="form-control" id="email1" placeholder="pippo_pippatore@gmail.com" [(ngModel)]="authLogin.email">
             <label for="password1">Crea una password</label>
             <input type="password" name="password" class="form-control" id="password1" placeholder="*************" [(ngModel)]="authLogin.password">
-            <button class="btn btn-light mt-3" (click)="entra()" [disabled]="carico" >Log-in</button>
+            <button class="btn  mt-3" (click)="entra()" [disabled]="carico" >Log-in</button>
     </div>
     <hr>
     <div id="reg">
@@ -24,7 +24,7 @@
             <input type="text" name="username" class="form-control" id="username" placeholder="yt_pippo_baudo_baudinatorTV" [(ngModel)]="authUser.username">
             <input type="checkbox" value="true" name="vipmember" id="vip" class="validation-form" [(ngModel)]="authUser.vipmember">
             <label for="vip">Desideri un'account vip?</label><br>
-            <button class="btn btn-light mt-3" (click)="registrati()"> Registrati</button>
+            <button class="btn  mt-3" (click)="registrati()"> Registrati</button>
 
         </form>
 
