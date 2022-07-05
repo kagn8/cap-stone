@@ -1,61 +1,154 @@
 <div class="flex-cop">
 <div class="copertina "  >
     <div class="gradient-border"id="box"><img src="../../assets/img/foto-prof.jpg"   class="img-raimbow" alt=""></div>
-   <div class="nuovo">
-    <!-- TODO -->
-    <!-- inserire nome utente, numero annunci-->
-
-    <!-- <a href="" class="raimbow">  Post <i class="bi bi-file-earmark-plus"></i></a>
-    <a href="" class="raimbow">Foto <i class="bi bi-camera"></i></a>
-    <a href="" class="raimbow">Link <i class="bi bi-link-45deg"></i></a> -->
-   </div>
+   
     </div>
 </div>
 
-
-<!-- TODO -->
-<!-- fare footer -->
 
 <div class="flex">
-    <div class="card-p p-1">
-        <div class="header-card ">
-            <img  class="img-profilo" src="../assets/img/logo.png" alt="" srcset="">
-            <h5>Nome-Utente</h5>
-            <a href=""><i class="bi bi-three-dots-vertical"></i></a>
-        </div>
-        <div class="spaziale"></div>
-        <div class="main-card">
-            <h6>Titolo post</h6>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quo qui nam cum facilis laudantium commodi iure, deleniti reprehenderit vero non impedit. Quisquam illum atque tenetur eaque modi doloribus, nisi eum.</p>
-        </div>
-        <div class="spaziale"></div>
-        <div class="footer-card">
-            <a href=""> Like <i class="bi bi-hand-thumbs-up"></i></a>
-            <a href=""> Commenta</a>
-        </div>
+
+  <div class="card-p p-1" *ngFor="let post of home let i=index">
+    <div class="header-card p-1">
+      <!-- TODO -->
+      <!-- mettere cerchietto alle foto --> <div class="header-card"><img class="img-profilo" src="../../assets/img/foto-prof.jpg" alt="" srcset="" />
+      <h4 class="ms-2 mt-2">{{ post.author }}</h4></div>
+      
+      <div *ngIf="user?.user?.id == post.authorNumero">
+        <a (click)="opzioniPost(post)"><i class="bi bi-three-dots-vertical"></i></a>
+      </div>
+      <div *ngIf="user?.user?.id != post.authorNumero">
+        <a (click)="opzioniPost(post)"><i class="bi bi-eyeglasses"></i></a>
+      </div>
 
     </div>
+    <div class="spaziale1"></div>
+    <div class="main-card p-3">
+      <h4>{{ post.title }}</h4>
+      <p>{{ post.body }}</p>
+      <img
+        *ngIf="post.fotografia"
+        [src]="post.fotografia"
+        class="modFot"
+      />
+      <!-- <div *ngIf="post.linko" >  <iframe width="560" height="315" [src]="post.linko" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </div> -->
+      
+      
+      <i> {{ post.date }}</i>
+    </div>
+    <div class="spaziale"></div>
+    <div class="footer-card">
+      <a (click)="like(post, i)" *ngIf="tiPiace[i]"> {{post.likedBy.length}}<i class="bi bi-heart-fill ms-2 grosse"></i></a>
+      <a (click)="like(post, i)" *ngIf="!tiPiace[i]"> {{post.likedBy.length}}<i class="bi bi-heart ms-2 grosse"></i></a>
+      <a (click)="getCommenti(post);  addComment=false; comment(comPost)">{{post.comment.length}}<i class="bi bi-chat-text ms-2 grosse"></i> </a>
+    </div>
+   
+    
+  </div>
+  <!-- TODO -->
+  <!-- levare tasto aggiungi commenti, numero commenti -->
+  <div  *ngIf="commenta" class="card-p position p-1">
+    <div *ngFor="let comm of c" class="px-1"><span  m-2><b>{{comm.autore}}</b>: {{comm.testo}}</span>
+      <div class="spaziale"></div>
+    </div>
+    
+    <!-- <div > <button (click)="comment(comPost)" class="btn coloreInvia">Aggiungi Commento</button></div> -->
+    <div > 
+      <label for="" class="mt-4"> <b>{{commento.autore}}:</b> </label>
+      <input type="text" [(ngModel)]="commento.testo" placeholder="Scrivi commento" class="form-control ">
+      <div ><button class="btn coloreInvia " (click)="inviaCommento(comPost)">Invia</button></div>
+      
+  </div>
+     
+    </div>
 
-    <div class="card-p p-1">
-        <div class="header-card ">
-            <img  class="img-profilo" src="../assets/img/logo.png" alt="" srcset="">
-            <h5>Nome-Utente</h5>
-            <a href=""><i class="bi bi-three-dots-vertical"></i></a>
-        </div>
-        <div class="spaziale"></div>
-        <div class="main-card">
-            <h6>Titolo post</h6>
-            <div class="flex"><img  class="img-card" src="../assets/img/logo.png" alt="" srcset=""></div>
-            
-        </div>
-        <div class="spaziale"></div>
-        <div class="footer-card">
-            <a href=""> Like <i class="bi bi-hand-thumbs-up"></i></a>
-            <a href=""> Commenta</a>
-        </div>
+  
+
+
+
+  <!-- OPZIONI/VISUALIZZA -->
+
+
+
+
+  <div *ngIf="opzPost" class="card-p position p-1"> <div class="header-card">
+      <img class="img-profilo" src="../assets/img/logo.png" alt="" srcset="" />
+      <h4>{{ postMod.author }}</h4>
+      <div >
+        <a (click)="opzPost=false"><i class="bi bi-x-circle"></i></a>
+      </div>
+      
 
     </div>
+    <div class="spaziale"></div>
+    <div class="main-card">
+      <h5>{{ postMod.title }}</h5>
+      <img
+        *ngIf="postMod.fotografia"
+        [src]="postMod.fotografia"
+        class="modFot"
+      />
+      <div *ngIf="postMod.linko" >  {{postMod.linko}} </div>
+      <p>{{ postMod.body }}</p>
+      <!-- <iframe *ngIf="post.link" width="450" height="315" src="{{post.link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br> -->
+      <i> {{ postMod.date }}</i>
+    </div>
+    <div class="spaziale"></div>
+    <div class="footer-card" *ngIf="user?.user?.id == postMod.authorNumero">
+      <a  (click)="modificaPost()"> Modifica</a>
+      <a (click)="eliminaPost(postMod.id)"> Elimina</a>
+    </div> 
+  </div>
+
+
+
+  <!-- MODIFICA -->
+
+
+  
+  <div *ngIf="modifica" class="card-p position p-1"> <div class="header-card">
+    <img class="img-profilo" src="../assets/img/logo.png" alt="" srcset="" />
+    <h4>{{ postMod.author }}</h4>
+    <div *ngIf="user?.user?.id == postMod.authorNumero">
+      <a (click)="modifica=false"><i class="bi bi-x-circle"></i></a>
+    </div>
+    
+
+  </div>
+  <div class="spaziale"></div>
+
+<!-- <form   > -->
+  <div class="main-card">
+      
+    <label for="">Modifica titolo:</label>
+    <input type="text" value="{{postMod.title}}" [(ngModel)]="upPost.title" class="form-control">
+
+    <label *ngIf="postMod.fotografia" for="">Modifica foto:</label>
+    <input type="text" *ngIf="postMod.fotografia" value="{{postMod.fotografia}}" [(ngModel)]="upPost.fotografia" class="form-control">
+
+    <label *ngIf="postMod.linko" for="">Modifica Link:</label>
+    <input type="text" *ngIf="postMod.linko" value="{{postMod.linko}}" [(ngModel)]="upPost.linko" class="form-control"> 
+
+    <label for="">Modifica Corpo:</label>
+    <textarea class="form-control"[(ngModel)]="upPost.body"> </textarea>
+    
+    <i> {{ postMod.date }}</i>
+  </div>
+
+
+  <div class="spaziale"></div>
+  <div class="footer-card" *ngIf="user?.user?.id == postMod.authorNumero">
+    <a (click)="updatePostino(upPost, postMod.id)" >Salva post</a>
+    <a  (click)="annulla()" >Annulla modifiche</a>
+    
+  </div> 
+<!-- </form> -->
+  
 </div>
+
+</div>
+
+
 
 
 <div id="aside">

@@ -1,10 +1,6 @@
 #reg-log{
     position: absolute;
     background-color: white;
-    // background: rgb(164,170,193);
-    // background: -moz-radial-gradient(circle, rgba(164,170,193,1) 0%, rgba(230,223,223,1) 100%);
-    // background: -webkit-radial-gradient(circle, rgba(164,170,193,1) 0%, rgba(230,223,223,1) 100%);
-    // background: radial-gradient(circle, rgba(164,170,193,1) 0%, rgba(230,223,223,1) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a4aac1",endColorstr="#e6dfdf",GradientType=1);
     // height: 50vh;
     width: 100vw;
@@ -12,7 +8,7 @@
     top: 0px;
     left: 0vw;
     border-radius: 5px;
-    padding: 15%;
+    padding: 10%;
     -webkit-box-shadow: 0px 10px 13px -7px #000000a1, 5px 5px 15px 5px rgba(0,0,0,0); 
     box-shadow: 0px 10px 13px -7px #000000a1, 5px 5px 15px 5px rgba(0,0,0,0);
 }

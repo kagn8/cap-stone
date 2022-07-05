@@ -13,6 +13,12 @@ export class AsideComponent implements OnInit {
   user!:AuthData|null
   constructor(private asideAuth:AuthService, private newPost: ServiceMainService, private forms:FormBuilder) { }
 
+  utenteId(){
+    
+    
+  this.newPost.setUtenteDaVisualizzare(this.user!.user.id)
+  }
+
   modalNuovoPost:boolean=false
   modalNuovoPh:boolean=false
   modalNuovoLink:boolean=false
@@ -36,10 +42,8 @@ export class AsideComponent implements OnInit {
   ngOnInit(): void {
     this.asideAuth.loginObs.subscribe((res)=>{
       this.user = res;
-      console.log(this.user);
+      })
 
-      
-    })
     this.form = this.forms.group({
       title:this.forms.control(null, [Validators.required]),
       body:this.forms.control(null, [Validators.required]),
@@ -102,5 +106,7 @@ export class AsideComponent implements OnInit {
       linko:this.forms.control(null, [Validators.required])
     })
   }
+
+  
 
 }

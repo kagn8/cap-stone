@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { BehaviorSubject, tap } from 'rxjs';
 
@@ -22,7 +23,7 @@ export class AuthService {
   jwtHelper = new JwtHelperService()
   autoLogoutTimer:any
 
-  constructor(private http: HttpClient) { this.restore()}
+  constructor(private http: HttpClient, private router: Router) { this.restore()}
 
   restore(){
     let userJson = localStorage.getItem("user");
@@ -50,6 +51,7 @@ export class AuthService {
   logout() {
     localStorage.removeItem("user")
     this.loginSub.next(null)
+    this.router.navigate(['/reg-log'])
   }
   private loginSub = new BehaviorSubject<null|AuthData>(null);
   

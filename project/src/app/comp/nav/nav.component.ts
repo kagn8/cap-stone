@@ -21,6 +21,7 @@ mostraOpzioni(){
   esci(){
     this.auth.logout()
     this.route.navigate(['/reg-log'])
+    this.opzioni=false
   }
 
 }

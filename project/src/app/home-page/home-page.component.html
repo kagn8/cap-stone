@@ -38,11 +38,11 @@
 
   <!-- </div> -->
   <!-- -->
-  <div class="card-p p-1" *ngFor="let post of home">
+  <div class="card-p p-1" *ngFor="let post of home let i=index">
     <div class="header-card p-1">
       <!-- TODO -->
       <!-- mettere cerchietto alle foto --> <div class="header-card"><img class="img-profilo" src="../../assets/img/foto-prof.jpg" alt="" srcset="" />
-      <h4 class="ms-2 mt-2">{{ post.author }}</h4></div>
+      <a class="ms-2 mt-2 puntatore" (click)="utenteId(post.authorNumero)" [routerLink]="['/profilo-utente']">{{ post.author }}</a></div>
       
       <div *ngIf="user?.user?.id == post.authorNumero">
         <a (click)="opzioniPost(post)"><i class="bi bi-three-dots-vertical"></i></a>
@@ -68,9 +68,9 @@
     </div>
     <div class="spaziale"></div>
     <div class="footer-card">
-      <a (click)="like(post)" *ngIf="tiPiace"> {{post.likedBy.length}}<i class="bi bi-heart-fill ms-2 grosse"></i></a>
-      <a (click)="like(post)" *ngIf="!tiPiace"> {{post.likedBy.length}}<i class="bi bi-heart ms-2 grosse"></i></a>
-      <a (click)="getCommenti(post);  addComment=false">{{post.comment.length}}<i class="bi bi-chat-text ms-2 grosse"></i> </a>
+      <a (click)="like(post, i)" *ngIf="tiPiace[i]"> {{post.likedBy.length}}<i class="bi bi-heart-fill ms-2 grosse"></i></a>
+      <a (click)="like(post, i)" *ngIf="!tiPiace[i]"> {{post.likedBy.length}}<i class="bi bi-heart ms-2 grosse"></i></a>
+      <a (click)="getCommenti(post);  addComment=false; comment(comPost)">{{post.comment.length}}<i class="bi bi-chat-text ms-2 grosse"></i> </a>
     </div>
     <!-- <div  *ngIf="commenta">
       <div *ngFor="let comm of c"><span  ><b>{{comm.autore}}</b>:{{comm.testo}}</span>
@@ -86,18 +86,18 @@
     </div> -->
     
   </div>
-  <!-- TODO -->
-  <!-- levare tasto aggiungi commenti, numero commenti -->
+
   <div  *ngIf="commenta" class="card-p position p-1">
       <div *ngFor="let comm of c" class="px-1"><span  m-2><b>{{comm.autore}}</b>: {{comm.testo}}</span>
         <div class="spaziale"></div>
       </div>
       
-      <div > <button (click)="comment(comPost)" class="btn coloreInvia">Aggiungi Commento</button></div>
-      <div *ngIf="addComment"> 
-        <label for="">{{commento.autore}}:</label>
-        <input type="text" [(ngModel)]="commento.testo" placeholder="Scrivi commento" class="form-control">
-        <button class="btn coloreInvia" (click)="inviaCommento(comPost)">Invia</button>
+      <!-- <div > <button (click)="comment(comPost)" class="btn coloreInvia">Aggiungi Commento</button></div> -->
+      <div > 
+        <label for="" class="mt-4"> <b>{{commento.autore}}:</b> </label>
+        <input type="text" [(ngModel)]="commento.testo" placeholder="Scrivi commento" class="form-control ">
+        <div ><button class="btn coloreInvia " (click)="inviaCommento(comPost)">Invia</button></div>
+        
     </div>
      
     </div>

@@ -33,4 +33,11 @@ export class ServiceMainService {
     return this.http.delete(`${this.ApiUrlPost}/${id}`)
     
   }
+  utenteDaVisualizzare!:number
+  setUtenteDaVisualizzare(id:number){
+    this.utenteDaVisualizzare = id
+
+  }
+
+  
 }

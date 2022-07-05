@@ -1,11 +1,6 @@
 .aside{
     position: fixed;
     background-color: white;
-    // background: rgb(164,170,193);
-    // background: -moz-radial-gradient(circle, rgba(164,170,193,1) 0%, rgba(230,223,223,1) 100%);
-    // background: -webkit-radial-gradient(circle, rgba(164,170,193,1) 0%, rgba(230,223,223,1) 100%);
-    // background: radial-gradient(circle, rgba(164,170,193,1) 0%, rgba(230,223,223,1) 100%);
-    // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a4aac1",endColorstr="#e6dfdf",GradientType=1);
     height: 190px;
     width: 20vw;
     top: 100px;
@@ -33,7 +28,7 @@
     top: 25vh;
     height: auto;
     left: 35vw;
-    z-index: 100;
+    z-index: 102;
 }
 .grande{
   height: 10rem;
@@ -74,4 +69,23 @@ a{
 }
 .colorino{
  background-color: rgb(237, 134, 251);
+ &:hover {
+  animation: colorRotate 2s linear 0s infinite;
+}
+}
+#blur{
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.75);
+  position: fixed;
+  z-index: 101;
+}
+.chiudi{
+  cursor: pointer;
+  font-size: 1.7rem;
+  color: rgb(237, 134, 251);
+  &:hover {
+    animation: colorRotate 2s linear 0s infinite;
+  }
 }

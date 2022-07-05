@@ -5,11 +5,7 @@
 .copertina{
     height: 100px;
     width: 50vw;
-    // position: fixed;
-    // background: rgb(164,170,193);
-    // background: -moz-radial-gradient(circle, rgba(164,170,193,1) 0%, rgba(230,223,223,1) 100%);
-    // background: -webkit-radial-gradient(circle, rgba(164,170,193,1) 0%, rgba(230,223,223,1) 100%);
-    // background: radial-gradient(circle, rgba(164,170,193,1) 0%, rgba(230,223,223,1) 100%);
+    
     background-color: white;
     position: relative;
     border-radius: 5px;
@@ -53,70 +49,11 @@ a{
   }
 
 }
-.nuovo{
-    position: absolute;
-    left: 250px;
-    top: 75px;
-    display: flex;
-    width: 20vw;
-    justify-content: space-between;
-   
-
-}
-.flex{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: column;
-    margin: 10px;
-
-
-.card-p{
-    height: auto;
-    width: 35vw;
-    background-color: white;
-    // background: rgb(179,178,178);
-    // background: -moz-linear-gradient(0deg, rgba(179,178,178,1) 0%, rgba(255,248,248,1) 100%);
-    // background: -webkit-linear-gradient(0deg, rgba(179,178,178,1) 0%, rgba(255,248,248,1) 100%);
-    // background: linear-gradient(0deg, rgba(179,178,178,1) 0%, rgba(255,248,248,1) 100%);
-    // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b3b2b2",endColorstr="#fff8f8",GradientType=1);
-    border-radius: 5px;
-    margin: 5px;
-    -webkit-box-shadow: 0px 10px 13px -7px #000000a1, 5px 5px 15px 5px rgba(0,0,0,0); 
-    box-shadow: 0px 10px 13px -7px #000000a1, 5px 5px 15px 5px rgba(0,0,0,0);
-}
-}
-.header-card{
-    display: flex;
-    justify-content: space-between;
-}
-.img-profilo{
-    height: 30px;
-    width: 20px;
-}
-.spaziale{
-    border-bottom: 1px solid rgba(0,0,0,0.44);
-    border-radius: 7px;
-    margin: 5px;
-}
-.img-card{
-    height: 150px;
-    width: 100px;
-}
-.footer-card{
-    display: flex;
-    justify-content: space-evenly;
-}
 
 
 #aside{
   position: fixed;
   background-color: white;
-  // background: rgb(164,170,193);
-  // background: -moz-radial-gradient(circle, rgba(164,170,193,1) 0%, rgba(230,223,223,1) 100%);
-  // background: -webkit-radial-gradient(circle, rgba(164,170,193,1) 0%, rgba(230,223,223,1) 100%);
-  // background: radial-gradient(circle, rgba(164,170,193,1) 0%, rgba(230,223,223,1) 100%);
-  // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a4aac1",endColorstr="#e6dfdf",GradientType=1);
   height: 190px;
   width: 20vw;
   top: 300px;
@@ -131,4 +68,100 @@ a{
 .flex1{
   display: flex;
   justify-content: space-between;
+}
+
+
+
+.flex{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  margin: 10px;
+
+
+.card-p{
+  
+  // height: auto;
+  width: 35vw;
+  background-color: white;
+  // background: rgb(179,178,178);
+  // background: -moz-linear-gradient(0deg, rgba(179,178,178,1) 0%, rgba(255,248,248,1) 100%);
+  // background: -webkit-linear-gradient(0deg, rgba(179,178,178,1) 0%, rgba(255,248,248,1) 100%);
+  // background: linear-gradient(0deg, rgba(179,178,178,1) 0%, rgba(255,248,248,1) 100%);
+  // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#b3b2b2",endColorstr="#fff8f8",GradientType=1);
+  border-radius: 5px;
+  margin: 5px;
+  -webkit-box-shadow: 0px 10px 13px -7px #000000a1, 5px 5px 15px 5px rgba(0,0,0,0); 
+  box-shadow: 0px 10px 13px -7px #000000a1, 5px 5px 15px 5px rgba(0,0,0,0);
+}
+.position{
+  position: fixed;
+  top: 30vh;
+  right: 15px;
+  width: 20vw;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 50vh;
+  
+  margin: 0;
+  .modFot{
+      height: 20vh;
+      border-radius: 10px;
+  }
+  
+}
+.modFot{
+  border-radius: 15px;
+  // height: 350px;
+  // width: 350px;
+}
+}
+.header-card{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main-card{
+  display: flex;
+  flex-direction: column;
+}
+.img-profilo{
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+}
+.spaziale{
+  border-bottom: 1px solid rgba(0,0,0,0.44);
+  border-radius: 7px;
+  margin: 5px;
+}
+.spaziale1{
+ 
+  margin: 5px;
+}
+.img-card{
+  height: 150px;
+  width: 100px;
+}
+.footer-card{
+  display: flex;
+  justify-content: space-evenly;
+}
+a{
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+.coloreInvia{
+  background-color: rgb(237, 134, 251);
+}
+.grosse{
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: red;
+}
+
+input{
+    border: 1px solid rgb(237, 134, 251);
 }
