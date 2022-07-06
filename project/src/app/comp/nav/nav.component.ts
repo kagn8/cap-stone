@@ -11,7 +11,9 @@ export class NavComponent implements OnInit {
 opzioni:boolean = false
 
 mostraOpzioni(){
-  this.opzioni=!this.opzioni
+  // this.opzioni=!this.opzioni
+  let opzioni = document.querySelector('.opzioni')
+  opzioni?.classList.toggle('canvas')
 }
   constructor(private auth:AuthService, private route:Router) { }
 

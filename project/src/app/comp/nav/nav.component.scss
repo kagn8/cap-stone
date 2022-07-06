@@ -5,14 +5,22 @@
     // background: radial-gradient(circle, rgba(164,170,193,1) 0%, rgba(230,223,223,1) 100%);
     // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a4aac1",endColorstr="#e6dfdf",GradientType=1);
     // width: 300px;
+    height: auto;
+    width: auto;
     background-color: white;
     border-radius: 5px;
     padding: 5px;
     position: fixed;
-    right: 15px;
-    top: 15vh;
+    right: 0px;
+    top: 0vh;
+    opacity: 0;
     -webkit-box-shadow: 0px 10px 13px -7px #000000a1, 5px 5px 15px 5px rgba(0,0,0,0); 
-    box-shadow: 0px 10px 13px -7px #000000a1, 5px 5px 15px 5px rgba(0,0,0,0);
+    box-shadow: 0px 10px 13px -7px #000000a1, 5px 5px 15px 5px rgba(0,0,0,0);display: flex;
+        flex-direction: column;
+    .rosa{
+        background-color: rgb(237, 134, 251);
+        margin: 3px;
+    }
 }
 .nav-principale{
     // background: rgb(164,170,193);
@@ -21,7 +29,7 @@
     // background: radial-gradient(circle, rgba(164,170,193,1) 0%, rgba(230,223,223,1) 100%);
     // filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#a4aac1",endColorstr="#e6dfdf",GradientType=1);
     background: rgb(232,110,182);
-background: radial-gradient(circle, rgba(232,110,182,1) 0%, rgba(240,226,226,1) 100%);
+    background: radial-gradient(circle, rgba(232,110,182,1) 0%, rgba(240,226,226,1) 100%);
     height: 70px;
     padding: 5px;
     display: flex;
@@ -31,6 +39,7 @@ background: radial-gradient(circle, rgba(232,110,182,1) 0%, rgba(240,226,226,1) 
     position: sticky;
     top: 0;
     z-index: 100;
+    display: flex;
   
     .img-logo{
         height: 50px;
@@ -61,14 +70,56 @@ background: radial-gradient(circle, rgba(232,110,182,1) 0%, rgba(240,226,226,1) 
 
     
 }
-.color{
-    text-shadow: -4px 4px #ef3b35,
-               -8px 8px #8ff4a5;
-               
-    margin-left: 15px;
+.ciao{
+    margin-left: 20px;
     text-decoration: none;
-
-               
-          
+    height: 50px;
+    width: 50px;  
+    &:hover {
+        animation: gattino 0.8s ease-in 0s infinite;
+      }
 }
+@keyframes gattino{
+    0%{
+        height: 50px;
+        width: 50px;
+        
+    }
+    50%{
+        height: 55px;
+        width: 55px;
+        
+    }
+    100%{
+        height: 50px;
+        width: 50px;
+    }
+}
+.canvas{
+    opacity: 1;
+    right: 15px;
+    top: 10vh;
+    animation: opaco 0.5s ease-in 0s 1;
+}
+@keyframes opaco{
+    0%{
+        opacity: 0.2;
+        right: 0px;
+        top: 3vh;
+        
+    }
+    50%{
+        opacity: 0.5;
+        right: 10px;
+        top: 7vh;
+        
+    }
+    100%{
+       opacity: 1;
+       right: 15px;
+    top: 10vh;
+    }
+}
+
+    
 

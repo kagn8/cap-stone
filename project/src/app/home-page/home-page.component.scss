@@ -80,6 +80,9 @@ a{
     text-decoration: none;
     color: black;
     cursor: pointer;
+    &:hover {
+            animation: colorRotate 2s linear 0s infinite;
+      }
 }
 .coloreInvia{
     background-color: rgb(237, 134, 251);
@@ -94,6 +97,37 @@ a{
     font-size: 1.4rem;
     
 }
-input{
+input, textarea{
     border: 1px solid rgb(237, 134, 251);
 }
+i{
+    font-size: 1.1rem;
+    color: rgb(237, 134, 251);
+    &:hover {
+
+        animation: colorRotate 2s linear 0s infinite;
+      }
+}
+.nero{
+    color: gray;
+    text-align: right;
+    font-style: italic;
+}
+
+@keyframes colorRotate {
+    from {
+      color: #6666ff;
+    }
+    10% {
+      color: #0099ff;
+    }
+    50% {
+      color: #b300ff;
+    }
+    75% {
+      color: #ff3399;
+    }
+    100% {
+      color: #6666ff;
+    }
+  }

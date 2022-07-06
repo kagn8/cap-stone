@@ -2,8 +2,9 @@
   
     
       <a [routerLink]="['/']" class="logo col-4">
-        <h1 class="color">Logo</h1>
+        <img class="ciao" src="../../../assets/img/cat.png" alt="">
       </a>
+
       <div class="col-4 this"><div class="icona"><i class="bi bi-binoculars"></i></div><input type="text" class="ps-5 form-control" placeholder="Cerca"/></div>
       
       <div class="nav-link col-4 text-end">
@@ -14,7 +15,11 @@
    
     </div>
     
-    <div *ngIf="opzioni" class="opzioni text-end">
+    <div  class="opzioni text-end">
+     
+        <a href= "mailto:cagnotto.f@gmail.com"class="btn rosa" >Scrivici</a>
+        <button class="btn rosa" (click)="esci()">Logout</button>
+     
       
-      <button class="btn btn-light" (click)="esci()">Logout</button>
+      
     </div>

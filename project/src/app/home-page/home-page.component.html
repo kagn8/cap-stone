@@ -64,7 +64,7 @@
       <!-- <div *ngIf="post.linko" >  <iframe width="560" height="315" [src]="post.linko" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </div> -->
       
       
-      <i> {{ post.date }}</i>
+       <span class="nero">{{ post.date }}</span>
     </div>
     <div class="spaziale"></div>
     <div class="footer-card">
@@ -112,10 +112,10 @@
 
 
   <div *ngIf="opzPost" class="card-p position p-1"> <div class="header-card">
-      <img class="img-profilo" src="../assets/img/logo.png" alt="" srcset="" />
-      <h4>{{ postMod.author }}</h4>
+      <img class="img-profilo" src="../../assets/img/foto-prof.jpg" alt="" srcset="" />
+      <a class="ms-2 mt-2 puntatore" (click)="utenteId(postMod.authorNumero)" [routerLink]="['/profilo-utente']">{{ postMod.author }}</a>
       <div >
-        <a (click)="opzPost=false"><i class="bi bi-x-circle"></i></a>
+        <a (click)="opzPost=false"><i class="bi-x-circle-fill"></i></a>
       </div>
       
 
@@ -131,7 +131,7 @@
       <div *ngIf="postMod.linko" >  {{postMod.linko}} </div>
       <p>{{ postMod.body }}</p>
       <!-- <iframe *ngIf="post.link" width="450" height="315" src="{{post.link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br> -->
-      <i> {{ postMod.date }}</i>
+      <span class="nero"> {{ postMod.date }}</span>
     </div>
     <div class="spaziale"></div>
     <div class="footer-card" *ngIf="user?.user?.id == postMod.authorNumero">
@@ -147,10 +147,10 @@
 
   
   <div *ngIf="modifica" class="card-p position p-1"> <div class="header-card">
-    <img class="img-profilo" src="../assets/img/logo.png" alt="" srcset="" />
-    <h4>{{ postMod.author }}</h4>
+    <img class="img-profilo" src="../../assets/img/foto-prof.jpg" alt="" srcset="" />
+    <a class="ms-2 mt-2 puntatore" (click)="utenteId(postMod.authorNumero)" [routerLink]="['/profilo-utente']">{{ postMod.author }}</a>
     <div *ngIf="user?.user?.id == postMod.authorNumero">
-      <a (click)="modifica=false"><i class="bi bi-x-circle"></i></a>
+      <a (click)="modifica=false"> <i class="bi bi-x-circle"></i></a>
     </div>
     
 
@@ -172,7 +172,7 @@
     <label for="">Modifica Corpo:</label>
     <textarea class="form-control"[(ngModel)]="upPost.body"> </textarea>
     
-    <i> {{ postMod.date }}</i>
+    <span class="nero"> {{ postMod.date }}</span>
   </div>
 
 
