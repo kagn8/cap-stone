@@ -164,4 +164,26 @@ a{
 
 input{
     border: 1px solid rgb(237, 134, 251);
+  }
+  .bordo{
+    border: 1px solid rgb(237, 134, 251);
+    margin-bottom: 3px;
+    border-radius: 5px;
+}
+i{
+  font-size: 1.1rem;
+  color: rgb(237, 134, 251);
+  &:hover {
+
+      animation: colorRotate 2s linear 0s infinite;
+    }
+}
+.nero{
+  color: gray;
+  text-align: right;
+  font-style: italic;
+}
+.flexcomm{
+  display: flex;
+  flex-direction: row-reverse;
 }

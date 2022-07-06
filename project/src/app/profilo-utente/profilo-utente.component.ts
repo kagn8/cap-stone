@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit } from '@angular/core';
 import { AuthData, AuthService } from '../auth-service.service';
 import { Icomment, IPosts } from '../posts';
 import { ServiceMainService } from '../service-main.service';
@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   templateUrl: './profilo-utente.component.html',
   styleUrls: ['./profilo-utente.component.scss']
 })
-export class ProfiloUtenteComponent implements OnInit {
+export class ProfiloUtenteComponent implements OnInit, OnChanges {
 
   constructor(private profiloPost:ServiceMainService, private profiloAuth:AuthService,) { }
 
@@ -65,7 +65,10 @@ export class ProfiloUtenteComponent implements OnInit {
     
     // console.log(post.comment);
     post.comment.push(this.commento)
-    this.profiloPost.updatePost(post, post.id).subscribe((res:IPosts)=>{ this.visualizzaPosts(); console.log(post);
+    this.profiloPost.updatePost(post, post.id).subscribe((res:IPosts)=>{ this.visualizzaPosts(); this.commento={
+      autore:`${this.user?.user.name} ${this.user?.user.surname}`,
+      testo:""
+     } ;
     })
     // console.log(post.comment);
   
@@ -82,7 +85,7 @@ export class ProfiloUtenteComponent implements OnInit {
   
   
 
-
+  emailString:string|undefined 
 
   ngOnInit(): void {
     this.profiloAuth.loginObs.subscribe((res)=>{
@@ -96,7 +99,7 @@ export class ProfiloUtenteComponent implements OnInit {
     this.profiloPost.getPosts().subscribe(res=>{
       
       this.home=res.filter(p => p.authorNumero==this.profiloPost.utenteDaVisualizzare).reverse();
-      console.log(this.home);
+      // console.log(this.home);
       
       for(let like of this.home){
         if(like.likedBy.includes(this.user!.user.id)){
@@ -105,6 +108,16 @@ export class ProfiloUtenteComponent implements OnInit {
         }else this.tiPiace.push(false)
       }
     })
+    this.emailString = `mailto:${this.user?.user?.email}`
+
+    console.log(this.home);
+    
+  }
+  
+  ngOnChanges():void{
+    console.log(this.home);
+    console.log("ora");
+
   }
 
   

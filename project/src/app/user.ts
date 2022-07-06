@@ -6,4 +6,5 @@ export interface IUser {
     username:string;
     vipmember:boolean;
     creationdate:string;
+    
 }

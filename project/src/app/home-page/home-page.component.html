@@ -87,18 +87,25 @@
     
   </div>
 
+
+<!-- commenti  -->
+
+
   <div  *ngIf="commenta" class="card-p position p-1">
-      <div *ngFor="let comm of c" class="px-1"><span  m-2><b>{{comm.autore}}</b>: {{comm.testo}}</span>
-        <div class="spaziale"></div>
-      </div>
-      
-      <!-- <div > <button (click)="comment(comPost)" class="btn coloreInvia">Aggiungi Commento</button></div> -->
-      <div > 
-        <label for="" class="mt-4"> <b>{{commento.autore}}:</b> </label>
-        <input type="text" [(ngModel)]="commento.testo" placeholder="Scrivi commento" class="form-control ">
-        <div ><button class="btn coloreInvia " (click)="inviaCommento(comPost)">Invia</button></div>
-        
+    <div class="flexcomm">
+      <a (click)="commenta=false"><i class="bi-x-circle-fill"></i></a>
     </div>
+    <div *ngFor="let comm of c" class="px-1 bordo"><span  m-2><b>{{comm.autore}}</b>: {{comm.testo}}</span>
+     
+    </div>
+    
+    <!-- <div > <button (click)="comment(comPost)" class="btn coloreInvia">Aggiungi Commento</button></div> -->
+    <div > 
+      <label for="" class="mt-4"> <b>{{commento.autore}}:</b> </label>
+      <input type="text" [(ngModel)]="commento.testo" placeholder="Scrivi commento" class="form-control ">
+      <div ><button class="btn coloreInvia " (click)="inviaCommento(comPost)">Invia</button></div>
+      
+  </div>
      
     </div>
 

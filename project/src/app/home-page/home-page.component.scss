@@ -131,3 +131,12 @@ i{
       color: #6666ff;
     }
   }
+  .bordo{
+    border: 1px solid rgb(237, 134, 251);
+    margin-bottom: 3px;
+    border-radius: 5px;
+}
+.flexcomm{
+    display: flex;
+    flex-direction: row-reverse;
+  }

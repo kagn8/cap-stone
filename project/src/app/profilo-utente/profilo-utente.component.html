@@ -34,7 +34,7 @@
       <!-- <div *ngIf="post.linko" >  <iframe width="560" height="315" [src]="post.linko" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> </div> -->
       
       
-      <i> {{ post.date }}</i>
+      <span class="nero"> {{ post.date }}</span>
     </div>
     <div class="spaziale"></div>
     <div class="footer-card">
@@ -45,11 +45,15 @@
    
     
   </div>
-  <!-- TODO -->
-  <!-- levare tasto aggiungi commenti, numero commenti -->
+  
+<!-- COMMENTI  -->
+
   <div  *ngIf="commenta" class="card-p position p-1">
-    <div *ngFor="let comm of c" class="px-1"><span  m-2><b>{{comm.autore}}</b>: {{comm.testo}}</span>
-      <div class="spaziale"></div>
+    <div class="flexcomm">
+      <a (click)="commenta=false"><i class="bi-x-circle-fill"></i></a>
+    </div>
+    <div *ngFor="let comm of c" class="px-1 bordo"><span  m-2><b>{{comm.autore}}</b>: {{comm.testo}}</span>
+     
     </div>
     
     <!-- <div > <button (click)="comment(comPost)" class="btn coloreInvia">Aggiungi Commento</button></div> -->
@@ -62,6 +66,7 @@
      
     </div>
 
+
   
 
 
@@ -72,7 +77,7 @@
 
 
   <div *ngIf="opzPost" class="card-p position p-1"> <div class="header-card">
-      <img class="img-profilo" src="../assets/img/logo.png" alt="" srcset="" />
+      <img class="img-profilo" src="../../assets/img/foto-prof.jpg" alt="" srcset="" />
       <h4>{{ postMod.author }}</h4>
       <div >
         <a (click)="opzPost=false"><i class="bi bi-x-circle"></i></a>
@@ -91,7 +96,7 @@
       <div *ngIf="postMod.linko" >  {{postMod.linko}} </div>
       <p>{{ postMod.body }}</p>
       <!-- <iframe *ngIf="post.link" width="450" height="315" src="{{post.link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br> -->
-      <i> {{ postMod.date }}</i>
+      <span class="nero"> {{ postMod.date }}</span>
     </div>
     <div class="spaziale"></div>
     <div class="footer-card" *ngIf="user?.user?.id == postMod.authorNumero">
@@ -107,7 +112,7 @@
 
   
   <div *ngIf="modifica" class="card-p position p-1"> <div class="header-card">
-    <img class="img-profilo" src="../assets/img/logo.png" alt="" srcset="" />
+    <img class="img-profilo" src="../../assets/img/foto-prof.jpg" alt="" srcset="" />
     <h4>{{ postMod.author }}</h4>
     <div *ngIf="user?.user?.id == postMod.authorNumero">
       <a (click)="modifica=false"><i class="bi bi-x-circle"></i></a>
@@ -132,7 +137,7 @@
     <label for="">Modifica Corpo:</label>
     <textarea class="form-control"[(ngModel)]="upPost.body"> </textarea>
     
-    <i> {{ postMod.date }}</i>
+    <span class="nero"> {{ postMod.date }}</span>
   </div>
 
 
@@ -162,7 +167,7 @@
         <i class="bi bi-twitter"></i> <a href=""> <h6  >Twitter</h6></a>
     </div>
     <div class="flex1">
-        <i class="bi bi-envelope"></i> <a href=""> <h6  >Contattami</h6></a>
+        <i class="bi bi-envelope"></i> <a [href]="emailString"> <h6  >Contattami</h6></a>
     </div>
     <div class="flex1">
         <i class="bi bi-youtube"></i> <a href=""> <h6  >Youtube</h6></a>
