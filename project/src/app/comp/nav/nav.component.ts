@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/auth-service.service';
+import { ServiceMainService } from 'src/app/service-main.service';
 
 @Component({
   selector: 'app-nav',
@@ -15,9 +16,15 @@ mostraOpzioni(){
   let opzioni = document.querySelector('.opzioni')
   opzioni?.classList.toggle('canvas')
 }
-  constructor(private auth:AuthService, private route:Router) { }
+  constructor(private auth:AuthService, private route:Router, private navService:ServiceMainService) { }
 
   ngOnInit(): void {
+  }
+
+  testoRicerca!:string
+
+  ricerca(){
+    this.navService.ricercaSub.next(this.testoRicerca)
   }
 
   esci(){

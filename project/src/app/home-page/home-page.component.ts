@@ -61,6 +61,8 @@ export class HomePageComponent implements OnInit {
      this.visualizzaPosts(); alert("Post eliminato correttamente"); this.opzPost=false; location.reload()})
   }
 
+  
+  
  
   home:IPosts[]=[]
   visualizzaPosts(){
@@ -172,6 +174,15 @@ export class HomePageComponent implements OnInit {
     this.homeAuth.loginObs.subscribe((res)=>{
       this.user = res;})
 
+      
+      this.post.ricercaObs.subscribe((req:any)=>{
+        this.post.getPosts().subscribe(res=>{
+          if(req){this.home=res.filter(t=>t.title.includes(req)).reverse()} 
+          else {this.home=res.reverse()}
+        })
+       }
+       )
+      
       
   }
 

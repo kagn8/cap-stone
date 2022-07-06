@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { IPosts } from './posts';
 
 @Injectable({
@@ -38,6 +39,9 @@ export class ServiceMainService {
     this.utenteDaVisualizzare = id
 
   }
+  ricercaSub = new BehaviorSubject<null|string>(null)
+
+  ricercaObs = this.ricercaSub.asObservable()
 
   
 }

@@ -1,7 +1,7 @@
 .aside{
     position: fixed;
     background-color: white;
-    height: 190px;
+    height: 220px;
     width: 20vw;
     top: 100px;
     left: 15px;
@@ -16,6 +16,26 @@
     #box{
         height: 50px;
         width: 50px;
+    }
+    .flex1{
+        display: flex;
+        justify-content: space-between;
+        padding: 1%;
+        cursor: pointer;
+        &:hover{
+          background-color: rgb(199, 199, 199);
+          border-radius: 5px;
+          animation: colorRotate 2s linear 0s infinite;
+        }
+        i{
+          cursor: pointer;
+          font-size: 1.2rem;
+          color: rgb(237, 134, 251);
+          &:hover {
+            animation: colorRotate 2s linear 0s infinite;
+          }
+        }
+        
     }
     .flex{
         display: flex;
@@ -41,11 +61,6 @@ a{
     cursor: pointer;
 
 &:hover {
-    
-   
-    
-    
-   
     animation: colorRotate 2s linear 0s infinite;
   }
   
@@ -89,3 +104,11 @@ a{
     animation: colorRotate 2s linear 0s infinite;
   }
 }
+// .chiudi1{
+//   cursor: pointer;
+//   font-size: 1.2rem;
+//   color: rgb(237, 134, 251);
+//   &:hover {
+//     animation: colorRotate 2s linear 0s infinite;
+//   }
+// }
