@@ -10,10 +10,15 @@
     position: relative;
     border-radius: 5px;
     margin-bottom: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     -webkit-box-shadow: 0px 10px 13px -7px #000000a1, 5px 5px 15px 5px rgba(0,0,0,0); 
     box-shadow: 0px 10px 13px -7px #000000a1, 5px 5px 15px 5px rgba(0,0,0,0);
     z-index: 1;
-    
+    button{
+      width: 80px;
+    }
 }}
 a{
     text-decoration: none;
@@ -54,9 +59,9 @@ a{
 #aside{
   position: fixed;
   background-color: white;
-  height: 190px;
+  height: 210px;
   width: 20vw;
-  top: 300px;
+  top: 340px;
   left: 15px;
   border-radius: 5px;
   padding: 1%;
@@ -68,7 +73,66 @@ a{
 .flex1{
   display: flex;
   justify-content: space-between;
+  padding: 1%;
+        cursor: pointer;
+        &:hover{
+          background-color: rgb(199, 199, 199);
+          border-radius: 5px;
+          animation: colorRotate 2s linear 0s infinite;
+        }
+        i{
+          cursor: pointer;
+          font-size: 1.2rem;
+          color: rgb(237, 134, 251);
+          &:hover {
+            animation: colorRotate 2s linear 0s infinite;
+          }
+        }
 }
+.flex2{
+  display: flex;
+  justify-content: start;
+  padding: 1%;
+  width: 35vw;
+  flex-wrap: wrap;
+  flex-direction: row;
+  flex-basis: 35vw;
+  .rel{
+    position: relative;
+    width: 200px;
+    height: 300px;
+    margin: 5px;
+    cursor: pointer;
+    .abs{
+      width: 200px;
+      position: absolute;
+      top: 5px;
+      left: 5px;
+      display: flex;
+      flex-direction: column;
+      flex-direction: column;
+      align-items: baseline;
+      padding: 2%;
+      .pos1{
+       color: #fff;
+      }
+      }
+      
+      
+    }
+    
+    
+  }
+  
+  .img-gal{
+    height: 300px;
+    width: 200px;
+    &:hover{
+      -webkit-box-shadow: 0px 10px 13px -7px #000000a1, 15px 15px 150px 15px rgba(0,0,0,0); 
+      box-shadow: 0px 10px 13px -7px #000000a1, 15px 15px 150px 15px rgba(0,0,0,0);
+      transform: scale(1.05);
+    }
+  }
 
 
 
@@ -186,4 +250,82 @@ i{
 .flexcomm{
   display: flex;
   flex-direction: row-reverse;
+}
+.lds-spinner {
+  color: official;
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-spinner div {
+  transform-origin: 40px 40px;
+  animation: lds-spinner 1.2s linear infinite;
+}
+.lds-spinner div:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 3px;
+  left: 37px;
+  width: 6px;
+  height: 18px;
+  border-radius: 20%;
+  background: #fff;
+}
+.lds-spinner div:nth-child(1) {
+  transform: rotate(0deg);
+  animation-delay: -1.1s;
+}
+.lds-spinner div:nth-child(2) {
+  transform: rotate(30deg);
+  animation-delay: -1s;
+}
+.lds-spinner div:nth-child(3) {
+  transform: rotate(60deg);
+  animation-delay: -0.9s;
+}
+.lds-spinner div:nth-child(4) {
+  transform: rotate(90deg);
+  animation-delay: -0.8s;
+}
+.lds-spinner div:nth-child(5) {
+  transform: rotate(120deg);
+  animation-delay: -0.7s;
+}
+.lds-spinner div:nth-child(6) {
+  transform: rotate(150deg);
+  animation-delay: -0.6s;
+}
+.lds-spinner div:nth-child(7) {
+  transform: rotate(180deg);
+  animation-delay: -0.5s;
+}
+.lds-spinner div:nth-child(8) {
+  transform: rotate(210deg);
+  animation-delay: -0.4s;
+}
+.lds-spinner div:nth-child(9) {
+  transform: rotate(240deg);
+  animation-delay: -0.3s;
+}
+.lds-spinner div:nth-child(10) {
+  transform: rotate(270deg);
+  animation-delay: -0.2s;
+}
+.lds-spinner div:nth-child(11) {
+  transform: rotate(300deg);
+  animation-delay: -0.1s;
+}
+.lds-spinner div:nth-child(12) {
+  transform: rotate(330deg);
+  animation-delay: 0s;
+}
+@keyframes lds-spinner {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }

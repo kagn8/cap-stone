@@ -34,11 +34,17 @@ export class ServiceMainService {
     return this.http.delete(`${this.ApiUrlPost}/${id}`)
     
   }
+  utenteDaVisualizzareSub = new BehaviorSubject<null|string>(null)
+  utenteDaVisualizzareObs = this.utenteDaVisualizzareSub.asObservable()
+  
   utenteDaVisualizzare!:number
+
   setUtenteDaVisualizzare(id:number){
     this.utenteDaVisualizzare = id
 
   }
+
+
   ricercaSub = new BehaviorSubject<null|string>(null)
 
   ricercaObs = this.ricercaSub.asObservable()

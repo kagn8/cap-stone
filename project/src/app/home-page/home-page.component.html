@@ -1,4 +1,8 @@
-<div class="flex">
+<div class="flex" >
+
+
+  <div class="lds-spinner" *ngIf="caricamento"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  
   <!-- <div class="card-p p-1">
         <div class="header-card ">
             <img  class="img-profilo" src="../assets/img/logo.png" alt="" srcset="">
@@ -38,7 +42,8 @@
 
   <!-- </div> -->
   <!-- -->
-  <div class="card-p p-1" *ngFor="let post of home let i=index">
+  <div *ngIf="!caricamento">
+  <div class="card-p p-1" *ngFor="let post of home let i=index"  >
     <div class="header-card p-1">
       <!-- TODO -->
       <!-- mettere cerchietto alle foto --> <div class="header-card"><img class="img-profilo" src="../../assets/img/foto-prof.jpg" alt="" srcset="" />
@@ -86,7 +91,7 @@
     </div> -->
     
   </div>
-
+</div>
 
 <!-- commenti  -->
 

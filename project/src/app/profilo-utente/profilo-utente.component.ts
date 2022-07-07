@@ -86,19 +86,46 @@ export class ProfiloUtenteComponent implements OnInit, OnChanges {
   
 
   emailString:string|undefined 
-
+  caricamento:boolean=false
+  functionX(){
+    
+    this.profiloPost.ricercaObs.subscribe((req:any)=>{
+      this.caricamento=true
+        
+      this.profiloPost.getPosts().subscribe(res=>{
+        
+        if(req){this.home=res.filter(p => p.authorNumero==this.n1).filter(t=>t.title.toLowerCase().includes(req.toLowerCase()) || t.body.toLowerCase().includes(req.toLowerCase())).reverse();this.caricamento=false} 
+        else {this.home=res.filter(p => p.authorNumero==this.n1).reverse(); this.caricamento=false }
+  
+      })
+      }
+     )
+  }
   ngOnInit(): void {
     this.profiloAuth.loginObs.subscribe((res)=>{
       this.user = res;})
 
-      this.visualizzaPosts()
+     this.functionX()
+
+    this.n =this.profiloPost.utenteDaVisualizzare
+
+    if(this.n!){localStorage.setItem('n', JSON.stringify(this.n) )
+    }
+    this.n1=localStorage.getItem('n')
+    console.log(this.n1);
+    
+    
+
   }
+  n!:number
+  n1!:string|null
+
   user!:AuthData|null;
   home:IPosts[]=[]
   visualizzaPosts(){
     this.profiloPost.getPosts().subscribe(res=>{
       
-      this.home=res.filter(p => p.authorNumero==this.profiloPost.utenteDaVisualizzare).reverse();
+      this.home=res.filter(p => p.authorNumero == this.n1).reverse();
       // console.log(this.home);
       
       for(let like of this.home){
@@ -115,10 +142,10 @@ export class ProfiloUtenteComponent implements OnInit, OnChanges {
   }
   
   ngOnChanges():void{
-    console.log(this.home);
-    console.log("ora");
+    
 
   }
+  galleria:boolean=false
 
   
   

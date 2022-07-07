@@ -71,8 +71,15 @@
       "linko": "",
       "author": "Mario Ciao",
       "authorNumero": 2,
-      "likedBy": [],
-      "comment": []
+      "likedBy": [
+        1
+      ],
+      "comment": [
+        {
+          "autore": "Francesco Cagnotto",
+          "testo": "Mi dispiace ma la tua principessa è in un altro castello"
+        }
+      ]
     },
     {
       "id": 8,

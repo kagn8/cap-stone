@@ -1,16 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { AuthData, AuthService } from '../auth-service.service';
 import { Icomment, IPosts } from '../posts';
 import { ServiceMainService } from '../service-main.service';
+import { tap } from 'rxjs'
 
 @Component({
   selector: 'app-home-page',
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss']
 })
-export class HomePageComponent implements OnInit {
+export class HomePageComponent implements OnInit, OnChanges {
+
+  ngOnChanges(changes: SimpleChanges): void {
+    
+  }
 
   user!:AuthData|null;
 
@@ -66,7 +71,7 @@ export class HomePageComponent implements OnInit {
  
   home:IPosts[]=[]
   visualizzaPosts(){
-
+    this.caricamento=true
     this.post.getPosts().subscribe(res=>{
       // res = res.map(p=>{ 
       //   let div = document.createElement('div')
@@ -87,7 +92,7 @@ export class HomePageComponent implements OnInit {
 
         }else this.tiPiace.push(false)
       }
-    
+      this.caricamento=false
     })
   }
 
@@ -167,25 +172,48 @@ export class HomePageComponent implements OnInit {
 
   
   
+  caricamento:boolean= false;
+
+  // setCaricamento(){
+  //   this.caricamento=true;
+
+  //   setTimeout(this.resetCaricamento,1500)
+
+  // }
+
+  // resetCaricamento(){
+  //   this.caricamento=false
+  // }
+
+  functionX(){
+    
+    this.post.ricercaObs.subscribe((req:any)=>{
+      this.caricamento=true
+        
+      this.post.getPosts().subscribe(res=>{
+        
+        if(req){this.home=res.filter(t=>t.title.toLowerCase().includes(req.toLowerCase()) || t.body.toLowerCase().includes(req.toLowerCase())).reverse();this.caricamento=false} 
+        else {this.home=res.reverse(); this.caricamento=false }
+  
+      })
+      }
+     )
+  }
 
   ngOnInit(): void {
-    this.visualizzaPosts()
-
+    
+    
+    
     this.homeAuth.loginObs.subscribe((res)=>{
       this.user = res;})
-
       
-      this.post.ricercaObs.subscribe((req:any)=>{
-        this.post.getPosts().subscribe(res=>{
-          if(req){this.home=res.filter(t=>t.title.includes(req)).reverse()} 
-          else {this.home=res.reverse()}
-        })
-       }
-       )
+      this.functionX()
+      
       
       
   }
 
+  
   
 
   updatePostino(postMod:IPosts, id:number){

@@ -1,13 +1,44 @@
 <div class="flex-cop">
 <div class="copertina "  >
     <div class="gradient-border"id="box"><img src="../../assets/img/foto-prof.jpg"   class="img-raimbow" alt=""></div>
-   
+    <button class="galleria btn coloreInvia mx-2" (click)="galleria=false">Post</button>
+    <button class="galleria btn coloreInvia mx-2" (click)="galleria=!galleria">Galleria</button>
     </div>
 </div>
 
 
 <div class="flex">
+  <div class="lds-spinner" *ngIf="caricamento"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
 
+  <div class="flex2" *ngIf="galleria">
+
+    <div  *ngFor="let post of home" >  
+    <div class="rel" *ngIf="post.fotografia" (click)="opzioniPost(post)">
+    
+      <img
+    *ngIf="post.fotografia"
+    [src]="post.fotografia"
+    class="img-gal"
+  />
+  <div class="abs">
+
+    <h3 class="pos1">{{post.author}}</h3>
+
+    <h4 class="pos1">{{post.title}}</h4>
+
+    
+  
+    </div>
+</div>
+
+
+
+</div>
+
+
+  </div>
+
+  <div *ngIf="!caricamento && !galleria">
   <div class="card-p p-1" *ngFor="let post of home let i=index">
     <div class="header-card p-1">
       <!-- TODO -->
@@ -42,6 +73,7 @@
       <a (click)="like(post, i)" *ngIf="!tiPiace[i]"> {{post.likedBy.length}}<i class="bi bi-heart ms-2 grosse"></i></a>
       <a (click)="getCommenti(post);  addComment=false; comment(comPost)">{{post.comment.length}}<i class="bi bi-chat-text ms-2 grosse"></i> </a>
     </div>
+  </div>
    
     
   </div>

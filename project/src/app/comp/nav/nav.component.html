@@ -5,7 +5,7 @@
         <img class="ciao" src="../../../assets/img/cat.png" alt="">
       </a>
 
-      <div class="col-4 this"><div class="icona"><i class="bi bi-binoculars"></i></div><input type="text"  [(ngModel)]="testoRicerca" name="testoRicerca" class="ps-5 form-control" placeholder="Cerca"/> <button (click)="ricerca()">Cerca</button></div>
+      <div class="col-4 this"><div class="icona"><i class="bi bi-binoculars"></i></div><input type="text"  [(ngModel)]="testoRicerca" (input)="ricerca()" name="testoRicerca" class="ps-5 form-control" placeholder="Cerca"/></div>
       
       <div class="nav-link col-4 text-end">
         <div id="box" class="gradient-border"><a [routerLink]="['/profilo-utente']"><img class=" img-raimbow" src="../../../assets/img/foto-prof.jpg" alt="Foto-profilo"srcset=""/></a></div>
